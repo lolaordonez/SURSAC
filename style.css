@@ -1,0 +1,429 @@
+/* Replica local de https://es-la.sonoco.com/latam.
+   La apariencia principal viene de los CSS publicos de Sonoco.
+   Este archivo es tu zona segura para personalizar colores, logo y ajustes visuales. */
+
+/* =========================
+   GUIA DE COLORES
+   Puedes editar estos valores como referencia visual.
+   Los elementos estructurales del hero no se recolorean automaticamente
+   porque dependen de mascaras y formas del sitio original.
+   ========================= */
+
+:root {
+  /* FONDO BASE CREMA */
+  --ui-base-cream: #F6F1E9;
+  --ui-carmine: #C1121F;
+  --ui-ink-dark: #111111;
+  --ui-warm-charcoal: #1C1A18;
+
+  /* BOTONES CREMA */
+  --ui-button-bg: #F6F1E9;
+  --ui-button-bg-hover: #ede5d9;
+  --ui-button-text: #8E1B22;
+
+  /* ROJO VINO PRINCIPAL */
+  --ui-brand-blue: #8E1B22;
+
+  /* HALO DETRAS DEL LOGO
+     Referencia visual. */
+  --ui-logo-glow-start: #8E1B22;
+  --ui-logo-glow-middle: #8E1B22;
+  --ui-logo-glow-end: #ffffff;
+
+  /* SELLO CIRCULAR CELESTE */
+  --ui-seal-bg: #F6F1E9;
+  --ui-seal-text: #8E1B22;
+
+  /* TEXTO CLARO SOBRE FONDO OSCURO */
+  --ui-on-dark: #ffffff;
+}
+
+/* Recolorea el sistema base de Sonoco solo en esta pagina.
+   Asi el hero y el header conservan su estructura original. */
+body.path-latam {
+  --color-primary-800: var(--ui-brand-blue);
+  --color-primary-900: #74151b;
+  background-color: var(--ui-base-cream);
+}
+
+body.path-latam .dialog-off-canvas-main-canvas,
+body.path-latam .site-wrapper,
+body.path-latam .region--content,
+body.path-latam .page-content,
+body.path-latam .content-wrap,
+body.path-latam .page-header,
+body.path-latam .theme-white,
+body.path-latam .stats-layer.theme-white,
+body.path-latam .launchpad-layer-icon.theme-white,
+body.path-latam .insights-layer {
+  background-color: var(--ui-base-cream);
+  background-image: none !important;
+}
+
+body.path-latam .header-homepage .header-mask::before {
+  background-image: url("header-curve.svg") !important;
+}
+
+/* =========================
+   LOGO
+   Aqui cambias solo tamano y comportamiento del logo.
+   ========================= */
+
+.site-header .logo a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  width: 69px;
+  height: 72px;
+  text-indent: 0;
+  line-height: 0;
+  overflow: visible;
+}
+
+.site-logo-image {
+  display: block;
+  width: 69px;
+  height: auto;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  margin: 0 !important;
+}
+
+@media (min-width: 64rem) {
+  .site-header .logo a {
+    width: 115px;
+    height: 120px;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .site-logo-image {
+    width: 115px;
+  }
+
+  body.shrink-header .site-header .site-logo-image {
+    width: 80px;
+  }
+}
+
+.footer-brand {
+  background: none !important;
+  width: auto !important;
+  height: auto !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  margin: 0;
+}
+
+.footer-brand::before,
+.footer-brand::after,
+.footer-brand a::before,
+.footer-brand a::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+}
+
+.footer-brand a {
+  display: block !important;
+  background: none !important;
+  background-image: none !important;
+  width: 220px !important;
+  height: auto !important;
+  text-indent: 0 !important;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.footer-brand-mark {
+  all: unset;
+  display: block !important;
+  width: 220px !important;
+  height: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   COLORES SEGUROS
+   Solo overrides que no rompen la composicion.
+   ========================= */
+
+/* Botones */
+.sonoco-button,
+button.sonoco-button,
+a.sonoco-button {
+  background: var(--ui-button-bg) !important;
+  background-color: var(--ui-button-bg) !important;
+  background-image: none !important;
+  color: var(--ui-button-text) !important;
+}
+
+.sonoco-button:hover,
+.sonoco-button:focus,
+button.sonoco-button:hover,
+button.sonoco-button:focus,
+a.sonoco-button:hover,
+a.sonoco-button:focus {
+  background: var(--ui-button-bg-hover) !important;
+  background-color: var(--ui-button-bg-hover) !important;
+  background-image: none !important;
+  color: var(--ui-button-text) !important;
+}
+
+/* Header blanco: boton Contáctanos rojo vino con texto blanco */
+.site-header .main-navigation ul.menu-level-0 > li:has(> a.sonoco-button) .sonoco-button {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  background-image: none !important;
+  color: var(--ui-on-dark) !important;
+  --button-text-color: var(--ui-on-dark) !important;
+}
+
+.site-header .main-navigation ul.menu-level-0 > li:has(> a.sonoco-button) .sonoco-button:hover,
+.site-header .main-navigation ul.menu-level-0 > li:has(> a.sonoco-button) .sonoco-button:focus,
+.site-header .main-navigation ul.menu-level-0 > li:has(> a.sonoco-button) .sonoco-button:focus-visible {
+  background: #74151b !important;
+  background-color: #74151b !important;
+  background-image: none !important;
+  color: var(--ui-on-dark) !important;
+  --button-text-color: var(--ui-on-dark) !important;
+}
+
+/* Header sobre fondo rojo: boton crema y lupa crema */
+body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .main-navigation ul.menu-level-0 > li:has(> a.sonoco-button) .sonoco-button {
+  background: var(--ui-base-cream) !important;
+  background-color: var(--ui-base-cream) !important;
+  background-image: none !important;
+  color: var(--ui-brand-blue) !important;
+  --button-text-color: var(--ui-brand-blue) !important;
+}
+
+.site-header .search-toggle {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Ccircle cx='15' cy='15' r='12' fill='none' stroke='%23111111' stroke-width='3'/%3E%3Cline x1='23.5' y1='23.5' x2='33' y2='33' stroke='%23111111' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain !important;
+}
+
+body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .search-toggle {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Ccircle cx='15' cy='15' r='12' fill='none' stroke='%23F6F1E9' stroke-width='3'/%3E%3Cline x1='23.5' y1='23.5' x2='33' y2='33' stroke='%23F6F1E9' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat center / contain !important;
+}
+
+.site-header .region-toggle {
+  color: var(--ui-brand-blue) !important;
+}
+
+/* Sello circular celeste */
+.header-seal {
+  --seal-background: var(--ui-base-cream) !important;
+  --seal-text: var(--ui-brand-blue) !important;
+  background-color: var(--ui-base-cream) !important;
+  border-color: var(--ui-base-cream) !important;
+  color: var(--ui-brand-blue) !important;
+}
+
+.header-homepage .header-seal {
+  background-color: var(--ui-seal-bg) !important;
+  border-color: var(--ui-seal-bg) !important;
+  color: var(--ui-seal-text) !important;
+}
+
+/* Bloque rojo de "Por qué las empresas confían en SURSAC" */
+.launchpad-layer-homepage-photo.theme-blue {
+  background: var(--ui-brand-blue) !important;
+  background-image: none !important;
+}
+
+.header-homepage .header-seal b,
+.header-homepage .header-seal span,
+.header-homepage .header-seal sup {
+  color: inherit !important;
+}
+
+/* Texto blanco sobre las zonas azules */
+.header-homepage .copy,
+.header-homepage .copy h1,
+.header-homepage .copy h2,
+.header-homepage .copy h3 {
+  color: var(--ui-on-dark);
+}
+
+body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button),
+body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .header-navigation ul li a,
+body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .region-toggle {
+  color: var(--ui-on-dark) !important;
+}
+
+body.path-latam #stats-layer-2404 .stats-item .stat .field-number {
+  font-size: 1rem !important;
+  line-height: 1.08 !important;
+  letter-spacing: 0 !important;
+  max-width: 150px !important;
+  margin: 0 auto 8px !important;
+}
+
+body.path-latam #stats-layer-2404 .stats-item .stat .field-label {
+  font-size: 0.7rem !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0 !important;
+  max-width: 130px !important;
+  margin: 0 auto !important;
+}
+
+body.path-latam #stats-layer-2404 .field-eyebrow {
+  color: var(--ui-ink-dark) !important;
+}
+
+body.path-latam #stats-layer-2404.stats-layer {
+  background-color: var(--ui-base-cream) !important;
+  background-image: none !important;
+}
+
+body.path-latam #stats-layer-2404 .stats-item .stat {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+body.path-latam #stats-layer-2404 .stats-item::before,
+body.path-latam #stats-layer-2404 .stats-item::after,
+body.path-latam #stats-layer-2404 .stats-item .stat::before,
+body.path-latam #stats-layer-2404 .stats-item .stat::after {
+  box-shadow: none !important;
+}
+
+body.path-latam #stats-item-2401,
+body.path-latam #stats-item-2401 .field-number,
+body.path-latam #stats-item-2401 .field-label {
+  color: var(--ui-carmine) !important;
+}
+
+body.path-latam #stats-item-2401::after {
+  border-color: var(--ui-carmine) !important;
+}
+
+body.path-latam #stats-item-2402,
+body.path-latam #stats-item-2402 .field-number,
+body.path-latam #stats-item-2402 .field-label {
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #stats-item-2402::after {
+  border-color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #call-to-action-large-2414.call-to-action-large {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  background-image: none !important;
+}
+
+body.path-latam #call-to-action-large-2414.call-to-action-large .image {
+  background-color: var(--ui-warm-charcoal) !important;
+}
+
+body.path-latam #call-to-action-large-2414 .field-headline h2,
+body.path-latam #call-to-action-large-2414 .field-text,
+body.path-latam #call-to-action-large-2414 .field-text p {
+  color: var(--ui-base-cream) !important;
+}
+
+/* =========================
+   CARRUSEL DE PRODUCTOS
+   Cambia acentos verdes a rojo vino.
+   ========================= */
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a {
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.swiper-slide-active > a,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.slick-current > a,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.slick-active > a {
+  box-shadow: inset 0 18px 0 var(--ui-brand-blue) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:hover,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:focus,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:focus-visible {
+  box-shadow: inset 0 18px 0 var(--ui-brand-blue) !important;
+  border-color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a::before,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:hover::before,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:focus::before,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:focus-visible::before {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  border-color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-pagination-bullet-active,
+body.path-latam #launchpad-layer-icon-2413 .slick-dots li.slick-active button,
+body.path-latam #launchpad-layer-icon-2413 .slick-dots li.slick-active button::before {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: inherit !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-indent: -9999px !important;
+  overflow: hidden !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next::after,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev::after,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::before,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::before,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::after,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::after {
+  color: var(--ui-brand-blue) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  text-indent: 0 !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next svg,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev svg,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow svg,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow svg,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow img,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow img {
+  fill: var(--ui-brand-blue) !important;
+  stroke: var(--ui-brand-blue) !important;
+  filter: sepia(1) saturate(8) hue-rotate(305deg) brightness(0.55) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 #launchpad-item-icon-2412 img,
+body.path-latam #launchpad-layer-icon-2413 #launchpad-item-icon-2972 img {
+  filter: sepia(1) saturate(10) hue-rotate(310deg) brightness(0.78);
+}
+
+/* =========================
+   REFERENCIA RAPIDA
+   Botones:
+   --ui-button-bg
+   --ui-button-bg-hover
+
+   Hero/header rojo:
+   Requiere intervenir las formas y assets del hero.
+   No basta con cambiar una variable sin afectar el layout.
+   ========================= */

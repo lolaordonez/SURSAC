@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vista Previa Video SURSAC</title>
+    <style>
+      :root {
+        --brand-red: #eb2427;
+        --brand-green: #90c53d;
+        --brand-blue: #00488e;
+        --text-light: #ffffff;
+        --panel-width: min(30vw, 420px);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #000;
+        color: var(--text-light);
+        overflow: hidden;
+      }
+
+      .frame {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        background: #000;
+      }
+
+      .media-stage {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 1s ease;
+      }
+
+      .slide.active {
+        opacity: 1;
+      }
+
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--bg);
+        background-size: cover;
+        background-position: center;
+        transform: scale(1.03);
+        animation: kenburns 8s ease-in-out infinite alternate;
+      }
+
+      .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.16) 100%);
+      }
+
+      @keyframes kenburns {
+        from {
+          transform: scale(1.03) translate3d(0, 0, 0);
+        }
+
+        to {
+          transform: scale(1.1) translate3d(1.2%, -1.2%, 0);
+        }
+      }
+
+      @media (max-width: 900px) {
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame">
+      <div class="media-stage">
+        <section class="slide active" style="--bg: url('video-preview-assets/empresa.png')"></section>
+        <section class="slide" style="--bg: url('video-preview-assets/planta.png')"></section>
+        <section class="slide" style="--bg: url('video-preview-assets/planta2.png')"></section>
+        <section class="slide" style="--bg: url('video-preview-assets/planta4.png')"></section>
+        <section class="slide" style="--bg: url('video-preview-assets/saco-papa.png')"></section>
+        <section class="slide" style="--bg: url('video-preview-assets/sacos.png')"></section>
+      </div>
+    </main>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll(".slide"));
+
+      let current = 0;
+      let timer = null;
+
+      function showSlide(index) {
+        slides[current].classList.remove("active");
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add("active");
+      }
+
+      function startLoop() {
+        timer = window.setInterval(() => {
+          showSlide(current + 1);
+        }, 2200);
+      }
+
+      startLoop();
+    </script>
+  </body>
+</html>
