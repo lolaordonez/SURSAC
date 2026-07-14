@@ -341,6 +341,11 @@ body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a {
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.swiper-slide-active > a,
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.slick-current > a,
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.slick-active > a {
@@ -401,29 +406,4 @@ body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::after 
   text-indent: 0 !important;
 }
 
-body.path-latam #launchpad-layer-icon-2413 .swiper-button-next svg,
-body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev svg,
-body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow svg,
-body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow svg,
-body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow img,
-body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow img {
-  fill: var(--ui-brand-blue) !important;
-  stroke: var(--ui-brand-blue) !important;
-  filter: sepia(1) saturate(8) hue-rotate(305deg) brightness(0.55) !important;
-}
-
-body.path-latam #launchpad-layer-icon-2413 #launchpad-item-icon-2412 img,
-body.path-latam #launchpad-layer-icon-2413 #launchpad-item-icon-2972 img {
-  filter: sepia(1) saturate(10) hue-rotate(310deg) brightness(0.78);
-}
-
-/* =========================
-   REFERENCIA RAPIDA
-   Botones:
-   --ui-button-bg
-   --ui-button-bg-hover
-
-   Hero/header rojo:
-   Requiere intervenir las formas y assets del hero.
-   No basta con cambiar una variable sin afectar el layout.
-   ========================= */
+body.path-latam #launchpad-layer-icon-2413 
