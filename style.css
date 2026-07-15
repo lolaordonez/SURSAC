@@ -406,4 +406,44 @@ body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::after 
   text-indent: 0 !important;
 }
 
-body.path-latam #launchpad-layer-icon-2413 
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next svg,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev svg,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow svg,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow svg,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow img,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow img {
+  fill: var(--ui-brand-blue) !important;
+  stroke: var(--ui-brand-blue) !important;
+  filter: sepia(1) saturate(8) hue-rotate(305deg) brightness(0.55) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon img {
+  display: block;
+  width: 118px;
+  height: 118px;
+  margin: 0 auto 16px;
+  object-fit: contain;
+  filter: none !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon .field-headline h3 {
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo img,
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* =========================
+   REFERENCIA RAPIDA
+   Botones:
+   --ui-button-bg
+   --ui-button-bg-hover
+
+   Hero/header rojo:
+   Requiere intervenir las formas y assets del hero.
+   No basta con cambiar una variable sin afectar el layout.
+   ========================= */
