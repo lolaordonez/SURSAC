@@ -332,6 +332,13 @@ body.path-latam #call-to-action-large-2414 .field-text p {
   color: var(--ui-base-cream) !important;
 }
 
+body.path-latam #call-to-action-large-2414 .field-text img {
+  display: block;
+  width: 134px;
+  height: auto;
+  margin-bottom: 24px;
+}
+
 /* =========================
    CARRUSEL DE PRODUCTOS
    Cambia acentos verdes a rojo vino.
