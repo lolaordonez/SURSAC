@@ -151,6 +151,256 @@ body.path-latam .header-homepage .header-mask::before {
   z-index: 1;
 }
 
+body.path-latam .site-footer .footer-title,
+body.path-latam .site-footer .footer-title span,
+body.path-latam .site-footer .footer-title b {
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam .site-footer,
+body.path-latam .site-footer .wrap,
+body.path-latam .site-footer .footer-upper,
+body.path-latam .site-footer .footer-lower {
+  background: var(--ui-base-cream) !important;
+  background-color: var(--ui-base-cream) !important;
+  background-image: none !important;
+}
+
+body.path-latam #button-latamcontact,
+body.path-latam #button-latamcontact:hover,
+body.path-latam #button-latamcontact:focus,
+body.path-latam #button-latamcontact:focus-visible {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  background-image: none !important;
+  color: var(--ui-base-cream) !important;
+  --button-text-color: var(--ui-base-cream) !important;
+}
+
+body.path-latam .footer-navigation nav > ul > li {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  border-radius: 20px !important;
+  padding: 1em 2em 2em !important;
+}
+
+body.path-latam .footer-navigation nav > ul > li > a,
+body.path-latam .footer-navigation nav > ul > li > span,
+body.path-latam .footer-navigation nav > ul > li ul a,
+body.path-latam .footer-navigation nav > ul > li ul span,
+body.path-latam .footer-navigation nav > ul > li .bg-blue,
+body.path-latam .footer-navigation nav > ul > li .bg-green {
+  color: var(--ui-base-cream) !important;
+}
+
+body.path-latam .footer-navigation nav > ul > li ul a:hover,
+body.path-latam .footer-navigation nav > ul > li ul a:focus-visible {
+  color: var(--ui-base-cream) !important;
+}
+
+body.path-latam .footer-navigation .social-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.75em;
+}
+
+body.path-latam .footer-navigation .social-link::before {
+  content: "";
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 1.1em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+body.path-latam .footer-navigation .social-linkedin::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='2.5' y='2.5' width='19' height='19' rx='4' fill='none' stroke='%23F6F1E9' stroke-width='2'/%3E%3Ccircle cx='8' cy='8' r='1.5' fill='%23F6F1E9'/%3E%3Cpath d='M7.2 10.8v5.8M11 16.6v-3.4c0-1.2.8-2 1.9-2 1.1 0 1.9.8 1.9 2v3.4M11 10.8v5.8' fill='none' stroke='%23F6F1E9' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+body.path-latam .footer-navigation .social-instagram::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='18' height='18' rx='5' fill='none' stroke='%23F6F1E9' stroke-width='2'/%3E%3Ccircle cx='12' cy='12' r='4' fill='none' stroke='%23F6F1E9' stroke-width='2'/%3E%3Ccircle cx='17.2' cy='6.8' r='1.2' fill='%23F6F1E9'/%3E%3C/svg%3E");
+}
+
+body.path-latam .footer-navigation .social-web::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='%23F6F1E9' stroke-width='2'/%3E%3Cpath d='M3.5 12h17M12 3.5c2.5 2.6 4 5.5 4 8.5s-1.5 5.9-4 8.5c-2.5-2.6-4-5.5-4-8.5s1.5-5.9 4-8.5Z' fill='none' stroke='%23F6F1E9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+body.path-contact-local .site-header {
+  background: var(--ui-base-cream) !important;
+}
+
+body.path-contact-local .contact-local-page {
+  background: var(--ui-base-cream);
+  color: var(--ui-ink-dark);
+}
+
+body.path-contact-local .contact-local-shell {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+body.path-contact-local .contact-local-hero {
+  padding: 56px 0 28px;
+}
+
+body.path-contact-local .contact-local-hero .contact-local-shell {
+  background: linear-gradient(135deg, #8e1b22 0%, #74151b 100%);
+  border-radius: 36px;
+  padding: 40px 32px;
+  color: var(--ui-base-cream);
+  box-shadow: none;
+}
+
+body.path-contact-local .contact-local-eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ui-base-cream);
+}
+
+body.path-contact-local .contact-local-hero h1 {
+  margin: 0 0 16px;
+  color: var(--ui-base-cream);
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 0.98;
+  font-weight: 800;
+}
+
+body.path-contact-local .contact-local-intro {
+  max-width: 62ch;
+  margin: 0 0 28px;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--ui-base-cream);
+}
+
+body.path-contact-local .contact-local-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+body.path-contact-local .contact-local-actions .sonoco-link,
+body.path-contact-local .contact-local-actions .sonoco-link:hover,
+body.path-contact-local .contact-local-actions .sonoco-link:focus-visible {
+  color: var(--ui-base-cream);
+  --link-text-color: var(--ui-base-cream);
+  --link-hover-color: var(--ui-base-cream);
+  --link-arrow-color: var(--ui-base-cream);
+}
+
+body.path-contact-local .contact-local-section {
+  padding: 12px 0 72px;
+}
+
+body.path-contact-local .contact-local-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+}
+
+body.path-contact-local .contact-local-card {
+  grid-column: span 4;
+  background: var(--ui-brand-blue);
+  color: var(--ui-base-cream);
+  border-radius: 28px;
+  padding: 28px 24px;
+}
+
+body.path-contact-local .contact-local-card-wide {
+  grid-column: span 12;
+}
+
+body.path-contact-local .contact-local-card-location {
+  grid-column: span 6;
+}
+
+body.path-contact-local .contact-local-card-label {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 233, 0.85);
+}
+
+body.path-contact-local .contact-local-card h2 {
+  margin: 0 0 16px;
+  color: var(--ui-base-cream);
+  font-size: 2rem;
+  line-height: 1.05;
+  font-weight: 800;
+}
+
+body.path-contact-local .contact-local-card p,
+body.path-contact-local .contact-local-card li,
+body.path-contact-local .contact-local-card strong,
+body.path-contact-local .contact-local-card a {
+  color: var(--ui-base-cream);
+}
+
+body.path-contact-local .contact-local-card p {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+body.path-contact-local .contact-local-card-location iframe {
+  display: block;
+  width: 100%;
+  height: 260px;
+  margin-top: 18px;
+  border: 0;
+  border-radius: 18px;
+  background: rgba(246, 241, 233, 0.16);
+}
+
+body.path-contact-local .contact-local-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.path-contact-local .contact-local-list li {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+body.path-contact-local .contact-local-list a {
+  text-decoration-color: rgba(246, 241, 233, 0.55);
+}
+
+body.path-contact-local .contact-local-list a:hover,
+body.path-contact-local .contact-local-list a:focus-visible {
+  color: var(--ui-base-cream);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 960px) {
+  body.path-contact-local .contact-local-card,
+  body.path-contact-local .contact-local-card-wide {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 640px) {
+  body.path-contact-local .contact-local-hero {
+    padding-top: 32px;
+  }
+
+  body.path-contact-local .contact-local-hero .contact-local-shell,
+  body.path-contact-local .contact-local-card {
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+}
+
 /* =========================
    COLORES SEGUROS
    Solo overrides que no rompen la composicion.
@@ -199,11 +449,11 @@ a.sonoco-button:focus {
 
 /* Header sobre fondo rojo: boton crema y lupa crema */
 body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .main-navigation ul.menu-level-0 > li:has(> a.sonoco-button) .sonoco-button {
-  background: var(--ui-base-cream) !important;
-  background-color: var(--ui-base-cream) !important;
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
   background-image: none !important;
-  color: var(--ui-brand-blue) !important;
-  --button-text-color: var(--ui-brand-blue) !important;
+  color: var(--ui-base-cream) !important;
+  --button-text-color: var(--ui-base-cream) !important;
 }
 
 .site-header .search-toggle {
@@ -237,6 +487,12 @@ body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(
 .launchpad-layer-homepage-photo.theme-blue {
   background: var(--ui-brand-blue) !important;
   background-image: none !important;
+}
+
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo a.block::after {
+  background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 12'%3E%3Cpath d='M12.5 5.4 7.8.7C7.5.4 7 .4 6.7.7s-.3.8 0 1.1l3.5 3.5H1c-.4 0-.8.2-.8.7s.3.8.8.8h9.1l-3.4 3.4c-.3.3-.3.8 0 1.1s.8.3 1.1 0l4.8-4.8c.3-.3.3-.8 0-1.1Z' fill='%23F6F1E9'/%3E%3C/svg%3E") no-repeat center !important;
+  background-size: contain !important;
+  filter: none !important;
 }
 
 .header-homepage .header-seal b,
@@ -277,6 +533,7 @@ body.path-latam #stats-layer-2404 .stats-item .stat .field-label {
 
 body.path-latam #stats-layer-2404 .field-eyebrow {
   color: var(--ui-ink-dark) !important;
+  text-transform: none !important;
 }
 
 body.path-latam #stats-layer-2404.stats-layer {
@@ -442,6 +699,73 @@ body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-ph
 body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a {
   box-shadow: none !important;
   filter: none !important;
+}
+
+body.path-latam #launchpad-layer-circular-photo-2422 .field-eyebrow {
+  text-transform: none !important;
+}
+
+body.path-latam #insights-layer-2423 header .sonoco-button,
+body.path-latam #insights-layer-2423 header .sonoco-button:hover,
+body.path-latam #insights-layer-2423 header .sonoco-button:focus,
+body.path-latam #insights-layer-2423 header .sonoco-button:focus-visible {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a::after {
+  background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 12'%3E%3Cpath d='M12.5 5.4 7.8.7C7.5.4 7 .4 6.7.7s-.3.8 0 1.1l3.5 3.5H1c-.4 0-.8.2-.8.7s.3.8.8.8h9.1l-3.4 3.4c-.3.3-.3.8 0 1.1s.8.3 1.1 0l4.8-4.8c.3-.3.3-.8 0-1.1Z' fill='%238E1B22'/%3E%3C/svg%3E") no-repeat center !important;
+  background-size: contain !important;
+  filter: none !important;
+}
+
+body.path-latam #call-to-action-medium-2424 {
+  background-color: #74151b !important;
+  background-image: linear-gradient(180deg, #8e1b22 0%, #74151b 55%, #5f1218 100%) !important;
+}
+
+body.path-latam #call-to-action-medium-2424 .image {
+  background-color: #5f1218 !important;
+  background-image: linear-gradient(180deg, #6c141c 0%, #541016 100%) !important;
+  background-blend-mode: normal !important;
+}
+
+body.path-latam #call-to-action-medium-2424 .field-headline h2,
+body.path-latam #call-to-action-medium-2424 .field-headline h2 span {
+  color: var(--ui-base-cream) !important;
+}
+
+body.path-latam #call-to-action-medium-2424 .sonoco-button,
+body.path-latam #call-to-action-medium-2424 .sonoco-button:hover,
+body.path-latam #call-to-action-medium-2424 .sonoco-button:focus,
+body.path-latam #call-to-action-medium-2424 .sonoco-button:focus-visible {
+  background: var(--ui-base-cream) !important;
+  background-color: var(--ui-base-cream) !important;
+  color: var(--ui-brand-blue) !important;
+  --button-text-color: var(--ui-brand-blue) !important;
+}
+
+body.path-na--products .site-header .header-navigation {
+  display: none !important;
+}
+
+body.path-na--products .site-header .main-navigation ul.menu-level-0 > li:has(> a[href="https://es-la.sonoco.com/na/markets"]),
+body.path-na--products .site-header .main-navigation ul.menu-level-0 > li:has(> a[href="https://es-la.sonoco.com/resources"]) {
+  display: none !important;
+}
+
+body.path-na--products .region.region--sub-header,
+body.path-na--products .sectionnav-container,
+body.path-na--products #block-sonoco-nasectionnavigation {
+  display: none !important;
+}
+
+body.path-na--products .page-title,
+body.path-na--products #spotlight-photo-2831,
+body.path-na--products #spotlight-photo-1444,
+body.path-na--products #list-columns-layer-1454 {
+  display: none !important;
 }
 
 /* =========================
