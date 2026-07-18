@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 820">
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #8e1b22;
+        stroke-dasharray: 2 8;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <circle cx="410" cy="410.1" r="409" class="st0"/>
+  <circle cx="410" cy="410.1" r="379" class="st0"/>
+  <circle cx="410" cy="410.1" r="349" class="st0"/>
+  <circle cx="410" cy="410.1" r="319" class="st0"/>
+  <circle cx="410" cy="410.1" r="289" class="st0"/>
+  <circle cx="410" cy="410.1" r="259" class="st0"/>
+</svg>
