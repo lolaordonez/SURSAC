@@ -167,6 +167,56 @@ body.path-latam .logo-layer::after {
   z-index: 1;
 }
 
+body.path-latam .site-footer .footer-announcement {
+  overflow: hidden;
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  color: var(--ui-base-cream) !important;
+  padding: 0.95rem 0;
+}
+
+body.path-latam .site-footer .footer-announcement-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: footer-announcement-scroll 26s linear infinite;
+  will-change: transform;
+}
+
+body.path-latam .site-footer .footer-announcement-group {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex: 0 0 auto;
+  min-width: max-content;
+  padding-right: 2.5rem;
+}
+
+body.path-latam .site-footer .footer-announcement-copy,
+body.path-latam .site-footer .footer-announcement-copy b {
+  color: var(--ui-base-cream) !important;
+}
+
+body.path-latam .site-footer .footer-announcement-copy {
+  flex: 0 0 auto;
+  font-size: clamp(1rem, 1.55vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes footer-announcement-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 body.path-latam .site-footer .footer-title,
 body.path-latam .site-footer .footer-title span,
 body.path-latam .site-footer .footer-title b {
@@ -184,6 +234,10 @@ body.path-latam .site-footer .footer-lower {
 
 body.path-latam .site-footer .wrap {
   max-width: calc(1500px + 4em) !important;
+}
+
+body.path-latam .site-footer .footer-lower {
+  padding-top: 0 !important;
 }
 
 body.path-latam #button-latamcontact,
@@ -246,9 +300,30 @@ body.path-latam .footer-navigation nav > ul {
     min-width: 0;
   }
 
+  body.path-latam .footer-navigation nav > ul > li {
+    padding: 1em 1.5em 2em !important;
+  }
+
   body.path-latam .footer-navigation nav > ul {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 0.9fr) !important;
-    gap: 1.25em !important;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.55fr) minmax(0, 0.86fr) minmax(0, 0.94fr) !important;
+    gap: 0.8em !important;
+  }
+
+  body.path-latam .footer-navigation nav > ul > li:nth-child(1) > span,
+  body.path-latam .footer-navigation nav > ul > li:nth-child(2) > span,
+  body.path-latam .footer-navigation nav > ul > li:nth-child(4) > span {
+    white-space: nowrap !important;
+  }
+
+  body.path-latam .footer-navigation nav > ul > li:nth-child(1) ul span {
+    white-space: nowrap !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.path-latam .site-footer .footer-announcement-track {
+    animation: none;
+    width: 100%;
   }
 }
 
@@ -286,7 +361,20 @@ body.path-latam .footer-navigation .social-web::before {
 }
 
 body.path-contact-local .site-header {
-  background: var(--ui-base-cream) !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 30;
+  background: transparent !important;
+}
+
+body.path-contact-local .site-header .wrap {
+  background: transparent !important;
+}
+
+body.path-contact-local .site-header .site-logo-image {
+  filter: brightness(0) invert(1);
 }
 
 body.path-contact-local .contact-local-page {
@@ -300,14 +388,24 @@ body.path-contact-local .contact-local-shell {
 }
 
 body.path-contact-local .contact-local-hero {
-  padding: 56px 0 28px;
+  position: relative;
+  min-height: 620px;
+  padding: 180px 0 40px;
+  background-image:
+    linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.5) 100%),
+    url("assets/planta.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 body.path-contact-local .contact-local-hero .contact-local-shell {
-  background: linear-gradient(135deg, #8e1b22 0%, #74151b 100%);
-  border-radius: 36px;
-  padding: 40px 32px;
+  position: relative;
+  min-height: 0;
+  padding: 0 0 56px;
   color: var(--ui-base-cream);
+  background: none !important;
+  border-radius: 0;
   box-shadow: none;
 }
 
@@ -323,13 +421,15 @@ body.path-contact-local .contact-local-eyebrow {
 body.path-contact-local .contact-local-hero h1 {
   margin: 0 0 16px;
   color: var(--ui-base-cream);
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  font-size: clamp(2.35rem, 4.35vw, 4.8rem);
   line-height: 0.98;
   font-weight: 800;
+  max-width: none;
+  white-space: nowrap;
 }
 
 body.path-contact-local .contact-local-intro {
-  max-width: 62ch;
+  max-width: 40ch;
   margin: 0 0 28px;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -341,6 +441,22 @@ body.path-contact-local .contact-local-actions {
   flex-wrap: wrap;
   gap: 16px;
   align-items: center;
+}
+
+body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button),
+body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):hover,
+body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):focus,
+body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):focus-visible {
+  color: var(--ui-base-cream) !important;
+}
+
+body.path-contact-local .contact-local-hero .contact-local-actions .sonoco-link,
+body.path-contact-local .contact-local-hero .contact-local-actions .sonoco-link:hover,
+body.path-contact-local .contact-local-hero .contact-local-actions .sonoco-link:focus-visible {
+  color: var(--ui-base-cream) !important;
+  --link-text-color: var(--ui-base-cream) !important;
+  --link-hover-color: var(--ui-base-cream) !important;
+  --link-arrow-color: var(--ui-base-cream) !important;
 }
 
 body.path-contact-local .contact-local-actions .sonoco-link,
@@ -380,7 +496,7 @@ body.path-contact-local .contact-local-card-location {
 
 body.path-contact-local .contact-local-card-label {
   margin: 0 0 8px;
-  font-size: 0.85rem;
+  font-size: 0.98rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -390,7 +506,7 @@ body.path-contact-local .contact-local-card-label {
 body.path-contact-local .contact-local-card h2 {
   margin: 0 0 16px;
   color: var(--ui-base-cream);
-  font-size: 2rem;
+  font-size: clamp(2.2rem, 2.5vw, 2.7rem);
   line-height: 1.05;
   font-weight: 800;
 }
@@ -404,18 +520,46 @@ body.path-contact-local .contact-local-card a {
 
 body.path-contact-local .contact-local-card p {
   margin: 0 0 8px;
-  font-size: 1.05rem;
+  font-size: 1.16rem;
   line-height: 1.5;
+}
+
+body.path-contact-local .contact-local-address {
+  display: block;
+  margin: 0 0 18px;
+  font-size: clamp(1rem, 1.08vw, 1.16rem);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+body.path-contact-local .contact-local-address:hover,
+body.path-contact-local .contact-local-address:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+body.path-contact-local .contact-local-map-shell {
+  position: relative;
 }
 
 body.path-contact-local .contact-local-card-location iframe {
   display: block;
   width: 100%;
   height: 260px;
-  margin-top: 18px;
   border: 0;
   border-radius: 18px;
   background: rgba(246, 241, 233, 0.16);
+}
+
+body.path-contact-local .contact-local-map-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
+  border-radius: 18px;
 }
 
 body.path-contact-local .contact-local-list {
@@ -426,7 +570,7 @@ body.path-contact-local .contact-local-list {
 
 body.path-contact-local .contact-local-list li {
   margin: 0 0 12px;
-  font-size: 1.05rem;
+  font-size: 1.16rem;
   line-height: 1.55;
 }
 
@@ -440,16 +584,12 @@ body.path-contact-local .contact-local-list a:focus-visible {
   text-decoration-color: currentColor;
 }
 
-body.path-contact-local .contact-local-hero .contact-local-shell,
 body.path-contact-local .contact-local-card-wide {
   background: var(--ui-base-cream) !important;
   background-color: var(--ui-base-cream) !important;
   color: var(--ui-brand-blue) !important;
 }
 
-body.path-contact-local .contact-local-eyebrow,
-body.path-contact-local .contact-local-hero h1,
-body.path-contact-local .contact-local-intro,
 body.path-contact-local .contact-local-card-wide .contact-local-card-label,
 body.path-contact-local .contact-local-card-wide h2,
 body.path-contact-local .contact-local-card-wide p,
@@ -457,6 +597,13 @@ body.path-contact-local .contact-local-card-wide li,
 body.path-contact-local .contact-local-card-wide strong,
 body.path-contact-local .contact-local-card-wide a {
   color: var(--ui-brand-blue) !important;
+}
+
+body.path-contact-local .contact-local-eyebrow,
+body.path-contact-local .contact-local-card-wide .contact-local-card-label,
+body.path-contact-local .contact-local-hero h1,
+body.path-contact-local .contact-local-intro {
+  color: var(--ui-base-cream) !important;
 }
 
 body.path-contact-local .contact-local-card-wide .contact-local-card-label {
@@ -476,10 +623,10 @@ body.path-contact-local .contact-local-card-wide .contact-local-list a:focus-vis
 body.path-contact-local .contact-local-actions .sonoco-link,
 body.path-contact-local .contact-local-actions .sonoco-link:hover,
 body.path-contact-local .contact-local-actions .sonoco-link:focus-visible {
-  color: var(--ui-brand-blue) !important;
-  --link-text-color: var(--ui-brand-blue) !important;
-  --link-hover-color: var(--ui-brand-blue) !important;
-  --link-arrow-color: var(--ui-brand-blue) !important;
+  color: var(--ui-base-cream) !important;
+  --link-text-color: var(--ui-base-cream) !important;
+  --link-hover-color: var(--ui-base-cream) !important;
+  --link-arrow-color: var(--ui-base-cream) !important;
 }
 
 body.path-contact-local .contact-local-actions .sonoco-button,
@@ -502,13 +649,22 @@ body.path-contact-local .contact-local-actions .sonoco-button:focus-visible {
 
 @media (max-width: 640px) {
   body.path-contact-local .contact-local-hero {
-    padding-top: 32px;
+    min-height: 520px;
+    padding: 136px 0 24px;
+  }
+
+  body.path-contact-local .contact-local-hero h1 {
+    white-space: normal;
   }
 
   body.path-contact-local .contact-local-hero .contact-local-shell,
   body.path-contact-local .contact-local-card {
     padding: 24px 20px;
-    border-radius: 24px;
+  }
+
+  body.path-contact-local .contact-local-hero .contact-local-shell {
+    padding: 0 0 40px;
+    border-radius: 0;
   }
 }
 
@@ -539,7 +695,7 @@ body.path-about-local .about-local-hero-grid {
 }
 
 body.path-about-local .about-local-hero-copy {
-  grid-column: span 6;
+  grid-column: span 7;
 }
 
 body.path-about-local .about-local-eyebrow,
@@ -563,8 +719,9 @@ body.path-about-local .about-local-cta-copy h2 {
 }
 
 body.path-about-local .about-local-hero-copy h1 {
-  font-size: clamp(1.7rem, 3vw, 3.1rem);
-  max-width: 13ch;
+  font-size: clamp(1.9rem, 3.35vw, 3.45rem);
+  max-width: 18ch;
+  margin-bottom: 18px;
 }
 
 body.path-about-local .about-local-story-copy h2,
@@ -578,8 +735,8 @@ body.path-about-local .about-local-story-copy p,
 body.path-about-local .about-local-feature-copy p,
 body.path-about-local .about-local-cta-copy p {
   margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.42;
+  font-size: 1.02rem;
+  line-height: 1.55;
   color: var(--ui-warm-charcoal);
 }
 
@@ -623,7 +780,7 @@ body.path-about-local .about-local-actions .sonoco-link:focus-visible {
 }
 
 body.path-about-local .about-local-hero-media {
-  grid-column: span 6;
+  grid-column: span 5;
   position: relative;
 }
 
@@ -633,36 +790,6 @@ body.path-about-local .about-local-hero-media > img {
   height: clamp(220px, 25vw, 300px);
   object-fit: cover;
   border-radius: 24px;
-}
-
-body.path-about-local .about-local-hero-badge {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  width: min(180px, calc(100% - 28px));
-  display: grid;
-  gap: 4px;
-  align-content: start;
-  padding: 10px 12px 12px;
-  border-radius: 18px;
-  background: rgba(246, 241, 233, 0.94);
-  border: 1px solid rgba(142, 27, 34, 0.12);
-  backdrop-filter: blur(12px);
-}
-
-body.path-about-local .about-local-hero-badge img {
-  display: block;
-  width: 56px;
-  height: auto;
-  margin: 0;
-}
-
-body.path-about-local .about-local-hero-badge p {
-  margin: 0;
-  color: var(--ui-brand-blue);
-  font-size: 0.82rem;
-  line-height: 1.3;
-  font-weight: 700;
 }
 
 body.path-about-local .about-local-story,
@@ -767,7 +894,7 @@ body.path-about-local .about-local-feature-reverse .about-local-feature-copy {
 
 body.path-about-local .about-local-principles {
   padding-top: 56px;
-  padding-bottom: 84px;
+  padding-bottom: 44px;
 }
 
 body.path-about-local .about-local-principles-grid {
@@ -777,7 +904,10 @@ body.path-about-local .about-local-principles-grid {
 }
 
 body.path-about-local .about-local-principle-card {
-  padding: 30px 26px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 24px 26px 26px;
   border-radius: 30px;
   background: var(--ui-brand-blue);
   color: var(--ui-base-cream);
@@ -788,13 +918,59 @@ body.path-about-local .about-local-principle-card p {
   color: var(--ui-base-cream);
 }
 
+body.path-about-local .about-local-principle-card h3 {
+  margin: 0;
+}
+
 body.path-about-local .about-local-principle-card p {
   margin: 0;
   line-height: 1.6;
 }
 
+body.path-about-local .about-local-principle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 56px;
+  min-height: 56px;
+  margin: 0 auto 2px;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--ui-base-cream);
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+body.path-about-local .about-local-principle-icon svg,
+body.path-about-local .about-local-principle-icon img {
+  width: 144px;
+  height: 144px;
+  display: block;
+  margin: 0 auto;
+  transform: scale(1.22);
+  transform-origin: center;
+}
+
+body.path-about-local .about-local-principle-icon svg {
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+body.path-about-local .about-local-principle-card-values .about-local-principle-icon svg,
+body.path-about-local .about-local-principle-card-values .about-local-principle-icon img {
+  width: 138px;
+  height: 138px;
+  transform: scale(1.18);
+}
+
 body.path-about-local .about-local-cta {
-  padding-top: 46px;
+  padding-top: 12px;
   padding-bottom: 56px;
 }
 
@@ -904,6 +1080,251 @@ body.path-about-local .about-local-cta-actions .sonoco-link:focus-visible {
   }
 }
 
+body.path-sustainability-local .site-header {
+  background: var(--ui-base-cream) !important;
+}
+
+body.path-sustainability-local .sustainability-local-page {
+  background: var(--ui-base-cream);
+  color: var(--ui-warm-charcoal);
+  padding-bottom: 72px;
+}
+
+body.path-sustainability-local .page-title {
+  display: none !important;
+}
+
+body.path-sustainability-local .sustainability-local-shell {
+  width: min(1260px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+body.path-sustainability-local .sustainability-local-subnav {
+  padding: 18px 0 28px;
+  background: var(--ui-base-cream);
+}
+
+body.path-sustainability-local .sustainability-local-subnav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.path-sustainability-local .sustainability-local-subnav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 1px solid rgba(142, 27, 34, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ui-brand-blue);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+body.path-sustainability-local .sustainability-local-subnav a:hover,
+body.path-sustainability-local .sustainability-local-subnav a:focus,
+body.path-sustainability-local .sustainability-local-subnav a:focus-visible {
+  background: var(--ui-brand-blue);
+  border-color: var(--ui-brand-blue);
+  color: var(--ui-base-cream);
+}
+
+body.path-sustainability-local .content-wrap,
+body.path-sustainability-local .page-content,
+body.path-sustainability-local .page-layers,
+body.path-sustainability-local .field-layers {
+  background: var(--ui-base-cream);
+}
+
+body.path-sustainability-local .launchpad-layer-homepage-photo.theme-white,
+body.path-sustainability-local .launchpad-layer-small-photo.theme-white,
+body.path-sustainability-local .spotlight-photo.theme-white {
+  background: var(--ui-base-cream) !important;
+  background-image: none !important;
+}
+
+body.path-sustainability-local .launchpad-layer-homepage-photo.theme-white .field-headline h2,
+body.path-sustainability-local .launchpad-layer-homepage-photo.theme-white .field-headline h3,
+body.path-sustainability-local .launchpad-layer-small-photo.theme-white .field-headline h2,
+body.path-sustainability-local .launchpad-layer-small-photo.theme-white .field-headline h3,
+body.path-sustainability-local .spotlight-photo.theme-white .field-headline h2,
+body.path-sustainability-local .spotlight-photo.theme-white .field-eyebrow {
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-sustainability-local .launchpad-layer-homepage-photo.theme-white .field-text,
+body.path-sustainability-local .launchpad-layer-homepage-photo.theme-white .field-text p,
+body.path-sustainability-local .launchpad-layer-small-photo.theme-white .field-text,
+body.path-sustainability-local .launchpad-layer-small-photo.theme-white .field-text p,
+body.path-sustainability-local .spotlight-photo.theme-white .field-text,
+body.path-sustainability-local .spotlight-photo.theme-white .field-text p,
+body.path-sustainability-local .leadership-feature .field-title,
+body.path-sustainability-local .leadership-feature p {
+  color: var(--ui-warm-charcoal) !important;
+}
+
+body.path-sustainability-local .tabbed-layer-photo.theme-blue,
+body.path-sustainability-local .leadership-feature,
+body.path-sustainability-local .call-to-action-large {
+  background: var(--ui-brand-blue) !important;
+  background-image: none !important;
+}
+
+body.path-sustainability-local .tabbed-layer-photo .field-eyebrow,
+body.path-sustainability-local .tabbed-layer-photo .field-headline h2,
+body.path-sustainability-local .tabbed-layer-photo .field-headline h3,
+body.path-sustainability-local .tabbed-layer-photo .field-text,
+body.path-sustainability-local .tabbed-layer-photo .field-text p,
+body.path-sustainability-local .leadership-feature .field-eyebrow,
+body.path-sustainability-local .leadership-feature .field-headline h2,
+body.path-sustainability-local .leadership-feature h3,
+body.path-sustainability-local .leadership-feature .field-title,
+body.path-sustainability-local .leadership-feature p,
+body.path-sustainability-local #sustainability-unpacked .field-headline h2,
+body.path-sustainability-local #sustainability-unpacked .field-text,
+body.path-sustainability-local #sustainability-unpacked .field-text p,
+body.path-sustainability-local #sustainability-cta .field-headline h2,
+body.path-sustainability-local #sustainability-cta .field-text,
+body.path-sustainability-local #sustainability-cta .field-text p {
+  color: var(--ui-base-cream) !important;
+}
+
+body.path-sustainability-local .tabbed-layer-photo .tabs li {
+  cursor: pointer;
+}
+
+body.path-sustainability-local .tabbed-layer-photo .tabs li:focus-visible {
+  outline: 2px solid var(--ui-base-cream);
+  outline-offset: 6px;
+}
+
+body.path-sustainability-local .tabbed-layer-photo .sonoco-link,
+body.path-sustainability-local .tabbed-layer-photo .sonoco-link:hover,
+body.path-sustainability-local .tabbed-layer-photo .sonoco-link:focus,
+body.path-sustainability-local .tabbed-layer-photo .sonoco-link:focus-visible,
+body.path-sustainability-local .leadership-feature .sonoco-link,
+body.path-sustainability-local .leadership-feature .sonoco-link:hover,
+body.path-sustainability-local .leadership-feature .sonoco-link:focus,
+body.path-sustainability-local .leadership-feature .sonoco-link:focus-visible {
+  color: var(--ui-base-cream) !important;
+  --link-text-color: var(--ui-base-cream) !important;
+  --link-hover-color: var(--ui-base-cream) !important;
+  --link-arrow-color: var(--ui-base-cream) !important;
+}
+
+body.path-sustainability-local .sustainability-local-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+body.path-sustainability-local .sustainability-local-bio {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+body.path-sustainability-local .sustainability-local-bio[hidden] {
+  display: none !important;
+}
+
+body.path-sustainability-local .spotlight-photo .sonoco-button,
+body.path-sustainability-local .spotlight-photo .sonoco-button:hover,
+body.path-sustainability-local .spotlight-photo .sonoco-button:focus,
+body.path-sustainability-local .spotlight-photo .sonoco-button:focus-visible {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  background-image: none !important;
+  color: var(--ui-base-cream) !important;
+  --button-text-color: var(--ui-base-cream) !important;
+}
+
+body.path-sustainability-local #sustainability-unpacked.spotlight-photo.theme-blue {
+  background:
+    linear-gradient(135deg, #8e1b22 0%, #74151b 100%) !important;
+}
+
+body.path-sustainability-local #sustainability-unpacked .sonoco-button,
+body.path-sustainability-local #sustainability-unpacked .sonoco-button:hover,
+body.path-sustainability-local #sustainability-unpacked .sonoco-button:focus,
+body.path-sustainability-local #sustainability-unpacked .sonoco-button:focus-visible,
+body.path-sustainability-local #sustainability-cta .sonoco-button,
+body.path-sustainability-local #sustainability-cta .sonoco-button:hover,
+body.path-sustainability-local #sustainability-cta .sonoco-button:focus,
+body.path-sustainability-local #sustainability-cta .sonoco-button:focus-visible {
+  background: var(--ui-base-cream) !important;
+  background-color: var(--ui-base-cream) !important;
+  background-image: none !important;
+  color: var(--ui-brand-blue) !important;
+  --button-text-color: var(--ui-brand-blue) !important;
+}
+
+body.path-sustainability-local #sustainability-cta.call-to-action-large {
+  background-color: var(--ui-brand-blue) !important;
+  background-image:
+    linear-gradient(rgba(142, 27, 34, 0.82), rgba(142, 27, 34, 0.82)),
+    url("assets/planta3.png?v=20260718-1") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+body.path-sustainability-local #sustainability-cta.call-to-action-large .image {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+body.path-sustainability-local #sustainability-cta .wrap {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
+}
+
+body.path-sustainability-local .header-large-photo .field-headline h2,
+body.path-sustainability-local .header-large-photo .field-eyebrow,
+body.path-sustainability-local .header-large-photo .field-text,
+body.path-sustainability-local .header-large-photo .field-text p {
+  color: var(--ui-base-cream) !important;
+}
+
+@media (max-width: 960px) {
+  body.path-sustainability-local .sustainability-local-subnav-list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  body.path-sustainability-local .sustainability-local-page {
+    padding-bottom: 56px;
+  }
+
+  body.path-sustainability-local .sustainability-local-subnav {
+    padding: 14px 0 22px;
+  }
+
+  body.path-sustainability-local .sustainability-local-subnav a {
+    white-space: nowrap;
+  }
+
+  body.path-sustainability-local #sustainability-cta .wrap {
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
+  }
+}
+
 /* =========================
    COLORES SEGUROS
    Solo overrides que no rompen la composicion.
@@ -948,6 +1369,57 @@ a.sonoco-button:focus {
   background-image: none !important;
   color: var(--ui-on-dark) !important;
   --button-text-color: var(--ui-on-dark) !important;
+}
+
+/* Limpieza global del header local para que no reaparezcan utilidades del tema base */
+body.path-latam .site-header .header-navigation,
+body.path-latam .site-header .region-select,
+body.path-latam .site-header .search-toggle,
+body.path-latam #block-sonoco-sonocosearchblock,
+body.path-latam .region.region--sub-header,
+body.path-latam .sectionnav-container,
+body.path-latam [id*="sectionnavigation"] {
+  display: none !important;
+}
+
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button),
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):hover,
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):focus,
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):focus-visible {
+  color: var(--ui-brand-blue) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li.menu-item--active-trail > a:not(.sonoco-button),
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li.sursac-mega-open > a:not(.sonoco-button),
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a[href="about.html"],
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a[href="about.html"]:hover,
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a[href="about.html"]:focus,
+body.path-latam .site-header .main-navigation ul.menu-level-0 > li > a[href="about.html"]:focus-visible {
+  color: var(--ui-brand-blue) !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+body.path-latam .site-header .main-navigation a.sonoco-button,
+body.path-latam .site-header .main-navigation a.sonoco-button:hover,
+body.path-latam .site-header .main-navigation a.sonoco-button:focus,
+body.path-latam .site-header .main-navigation a.sonoco-button:focus-visible {
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  background-image: none !important;
+  color: var(--ui-base-cream) !important;
+  --button-text-color: var(--ui-base-cream) !important;
+}
+
+body.path-latam .site-header .main-navigation a.sonoco-button:hover,
+body.path-latam .site-header .main-navigation a.sonoco-button:focus,
+body.path-latam .site-header .main-navigation a.sonoco-button:focus-visible {
+  background: #74151b !important;
+  background-color: #74151b !important;
 }
 
 /* Header sobre fondo rojo: boton crema y lupa crema */
@@ -1041,7 +1513,7 @@ body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(
   }
 
   .main-navigation ul.menu-level-0 > li.sursac-mega-open > a:not(.sonoco-button) {
-    color: var(--color-tertiary) !important;
+    color: var(--ui-brand-blue) !important;
   }
 
   .main-navigation .menu-dropdown-0 a,
@@ -1269,6 +1741,14 @@ body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-ph
 
 body.path-latam #launchpad-layer-circular-photo-2422 .field-eyebrow {
   text-transform: none !important;
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a,
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a:hover,
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a:focus,
+body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a:focus-visible {
+  color: var(--ui-brand-blue) !important;
 }
 
 body.path-latam #insights-layer-2423 header .sonoco-button,
