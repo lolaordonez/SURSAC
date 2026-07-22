@@ -1,9 +1,10 @@
 (function () {
   const productItems = [
-    { label: "Saco malla", href: "products.html#launchpad-item-large-photo-1424" },
-    { label: "Saco malla Plus", href: "products.html#launchpad-item-large-photo-1425" },
-    { label: "Saco tejido", href: "products.html#launchpad-item-large-photo-1443" },
-    { label: "Piola", href: "products.html#launchpad-item-large-photo-1436" }
+    { label: "Sacos Leno Original", href: "products.html#launchpad-item-large-photo-1424" },
+    { label: "Sacos Leno Plus", href: "products.html#launchpad-item-large-photo-1425" },
+    { label: "Sacos Impresos", href: "products.html#launchpad-item-large-photo-1445" },
+    { label: "Telas De Polipropileno", href: "products.html#launchpad-item-large-photo-1443" },
+    { label: "Piolas", href: "products.html#launchpad-item-large-photo-1436" }
   ];
 
   const productSignature = productItems.map((item) => item.label).join("|");
@@ -47,8 +48,8 @@
     link.setAttribute("href", "products.html");
   }
 
-  function bindProductTriggerNavigation(link) {
-    if (link.dataset.sursacProductTriggerBound === "true") return;
+  function bindDirectLinkNavigation(link, boundKey) {
+    if (link.dataset[boundKey] === "true") return;
 
     link.addEventListener(
       "click",
@@ -65,12 +66,19 @@
       { capture: true }
     );
 
-    link.dataset.sursacProductTriggerBound = "true";
+    link.dataset[boundKey] = "true";
+  }
+
+  function bindProductTriggerNavigation(link) {
+    bindDirectLinkNavigation(link, "sursacProductTriggerBound");
   }
 
   function normalizeProductDropdown(menuItem) {
     const dropdown = menuItem.querySelector(":scope > .menu_link_content");
     if (!dropdown) return;
+
+    menuItem.classList.add("sursac-product-menu-item");
+    dropdown.classList.add("sursac-product-dropdown");
 
     dropdown
       .querySelectorAll(".menu-desktop-links, .menu-headline, [class*='desktop-links']")
@@ -97,6 +105,8 @@
 
     if (!subnav) return;
 
+    subnav.classList.add("sursac-product-subnav");
+
     const currentLabels = Array.from(
       subnav.querySelectorAll(":scope > ul.menu-level-1 > li > a")
     )
@@ -107,11 +117,19 @@
     );
 
     if (currentLabels === productSignature && !hasUnexpectedContent) {
+      const existingList = subnav.querySelector(":scope > ul.menu-level-1");
+      if (existingList) {
+        existingList.classList.add("sursac-product-menu-list");
+      }
       subnav.dataset.sursacProductsNormalized = "true";
       return;
     }
 
     subnav.innerHTML = buildProductMenuMarkup();
+    const normalizedList = subnav.querySelector(":scope > ul.menu-level-1");
+    if (normalizedList) {
+      normalizedList.classList.add("sursac-product-menu-list");
+    }
     subnav.dataset.sursacProductsNormalized = "true";
   }
 
@@ -144,6 +162,10 @@
   function normalizeSustainabilityTrigger(link) {
     link.textContent = "Sostenibilidad";
     link.setAttribute("href", "sustainability.html");
+  }
+
+  function bindSustainabilityTriggerNavigation(link) {
+    bindDirectLinkNavigation(link, "sursacSustainabilityTriggerBound");
   }
 
   function isAboutTrigger(link) {
@@ -185,6 +207,7 @@
       .forEach((link) => {
         if (!isSustainabilityTrigger(link)) return;
         normalizeSustainabilityTrigger(link);
+        bindSustainabilityTriggerNavigation(link);
       });
   }
 
@@ -234,6 +257,37 @@
     });
   }
 
+  function normalizeProductsPageHeader(root) {
+    if (!root.body || !root.body.classList.contains("path-na--products")) return;
+
+    const header = root.querySelector(".site-header");
+    if (!header || header.dataset.sursacLocalHeader === "true") return;
+
+    header.dataset.sursacLocalHeader = "true";
+    header.innerHTML = [
+      '<div class="wrap">',
+      '  <h2 class="logo">',
+      '    <a href="index.html" aria-label="SURSAC">',
+      '      <img src="Image20250414170531.png" alt="SURSAC" class="site-logo-image" width="1600" height="1578" />',
+      "    </a>",
+      "  </h2>",
+      '  <div class="site-navigation">',
+      '    <div class="main-navigation">',
+      '      <nav role="navigation" aria-labelledby="products-main-navigation-menu" id="products-main-navigation">',
+      '        <h2 class="visually-hidden" id="products-main-navigation-menu">Main Navigation</h2>',
+      '        <ul data-region="site_header" class="menu menu-list menu-level-0">',
+      '          <li class="menu-item"><a href="products.html" aria-current="page">Productos</a></li>',
+      '          <li class="menu-item"><a href="sustainability.html">Sostenibilidad</a></li>',
+      '          <li class="menu-item"><a href="about.html">Acerca de nosotros</a></li>',
+      '          <li class="menu-item"><a href="contact.html" class="sonoco-button" style="background:#8E1B22 !important; background-color:#8E1B22 !important; background-image:none !important; color:#F6F1E9 !important;">Contáctanos</a></li>',
+      "        </ul>",
+      "      </nav>",
+      "    </div>",
+      "  </div>",
+      "</div>"
+    ].join("");
+  }
+
   let scheduled = false;
 
   function scheduleNormalization() {
@@ -242,6 +296,7 @@
 
     requestAnimationFrame(() => {
       scheduled = false;
+      normalizeProductsPageHeader(document);
       disableDirectLinkMegaMenus(document);
       normalizeSustainabilityMenus(document);
       normalizeProductMenus(document);

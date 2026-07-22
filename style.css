@@ -61,6 +61,13 @@ body.path-latam .insights-layer {
   background-image: none !important;
 }
 
+body.path-latam .site-header,
+body.path-latam .site-header .wrap {
+  background: var(--ui-base-cream) !important;
+  background-color: var(--ui-base-cream) !important;
+  background-image: none !important;
+}
+
 body.path-latam .header-homepage .header-mask::before {
   background-image: url("header-curve.svg") !important;
 }
@@ -240,6 +247,38 @@ body.path-latam .site-footer .footer-lower {
   padding-top: 0 !important;
 }
 
+body.path-latam .site-footer .footer-lower .inner {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.5rem !important;
+  text-align: center !important;
+}
+
+body.path-latam .site-footer .footer-lower .footer-brand {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+body.path-latam .site-footer .footer-lower .footer-brand a {
+  margin: 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+body.path-latam .site-footer .footer-lower #button-latamcontact {
+  align-self: center !important;
+}
+
+@media (max-width: 63.9375rem) {
+  body.path-latam .site-footer .footer-lower .inner {
+    gap: 1.5rem !important;
+  }
+}
+
 body.path-latam #button-latamcontact,
 body.path-latam #button-latamcontact:hover,
 body.path-latam #button-latamcontact:focus,
@@ -305,7 +344,7 @@ body.path-latam .footer-navigation nav > ul {
   }
 
   body.path-latam .footer-navigation nav > ul {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.55fr) minmax(0, 0.86fr) minmax(0, 0.94fr) !important;
+    grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.48fr) minmax(0, 1.16fr) minmax(0, 0.8fr) !important;
     gap: 0.8em !important;
   }
 
@@ -316,6 +355,10 @@ body.path-latam .footer-navigation nav > ul {
   }
 
   body.path-latam .footer-navigation nav > ul > li:nth-child(1) ul span {
+    white-space: nowrap !important;
+  }
+
+  body.path-latam .footer-navigation nav > ul > li:nth-child(3) ul a {
     white-space: nowrap !important;
   }
 }
@@ -361,20 +404,20 @@ body.path-latam .footer-navigation .social-web::before {
 }
 
 body.path-contact-local .site-header {
-  position: absolute;
+  position: sticky;
   top: 0;
-  left: 0;
   width: 100%;
-  z-index: 30;
-  background: transparent !important;
+  z-index: 40;
+  background: var(--ui-base-cream) !important;
+  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.08);
 }
 
 body.path-contact-local .site-header .wrap {
-  background: transparent !important;
+  background: var(--ui-base-cream) !important;
 }
 
 body.path-contact-local .site-header .site-logo-image {
-  filter: brightness(0) invert(1);
+  filter: none;
 }
 
 body.path-contact-local .contact-local-page {
@@ -389,13 +432,13 @@ body.path-contact-local .contact-local-shell {
 
 body.path-contact-local .contact-local-hero {
   position: relative;
-  min-height: 620px;
-  padding: 180px 0 40px;
+  min-height: 575px;
+  padding: 116px 0 32px;
   background-image:
     linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.5) 100%),
-    url("assets/planta.png");
+    url("assets/contactanos-banner.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -426,6 +469,7 @@ body.path-contact-local .contact-local-hero h1 {
   font-weight: 800;
   max-width: none;
   white-space: nowrap;
+  text-shadow: 0 3px 14px rgba(17, 17, 17, 0.2);
 }
 
 body.path-contact-local .contact-local-intro {
@@ -434,6 +478,7 @@ body.path-contact-local .contact-local-intro {
   font-size: 1.125rem;
   line-height: 1.5;
   color: var(--ui-base-cream);
+  text-shadow: 0 2px 10px rgba(17, 17, 17, 0.18);
 }
 
 body.path-contact-local .contact-local-actions {
@@ -447,7 +492,7 @@ body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):hover,
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):focus,
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button):focus-visible {
-  color: var(--ui-base-cream) !important;
+  color: var(--ui-brand-blue) !important;
 }
 
 body.path-contact-local .contact-local-hero .contact-local-actions .sonoco-link,
@@ -469,13 +514,31 @@ body.path-contact-local .contact-local-actions .sonoco-link:focus-visible {
 }
 
 body.path-contact-local .contact-local-section {
-  padding: 12px 0 72px;
+  padding: 12px 0 0;
 }
 
 body.path-contact-local .contact-local-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 20px;
+}
+
+body.path-contact-local .contact-local-locations-block {
+  grid-column: span 12;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding: 22px 0;
+  border-radius: 0;
+  background: var(--ui-brand-blue);
+  background-color: var(--ui-brand-blue);
+}
+
+body.path-contact-local .contact-local-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
 }
 
 body.path-contact-local .contact-local-card {
@@ -492,6 +555,9 @@ body.path-contact-local .contact-local-card-wide {
 
 body.path-contact-local .contact-local-card-location {
   grid-column: span 6;
+  background: var(--ui-base-cream) !important;
+  background-color: var(--ui-base-cream) !important;
+  color: var(--ui-brand-blue) !important;
 }
 
 body.path-contact-local .contact-local-card-label {
@@ -551,7 +617,7 @@ body.path-contact-local .contact-local-card-location iframe {
   height: 260px;
   border: 0;
   border-radius: 18px;
-  background: rgba(246, 241, 233, 0.16);
+  background: rgba(142, 27, 34, 0.12);
 }
 
 body.path-contact-local .contact-local-map-link {
@@ -620,6 +686,29 @@ body.path-contact-local .contact-local-card-wide .contact-local-list a:focus-vis
   text-decoration-color: currentColor !important;
 }
 
+body.path-contact-local .contact-local-card-location .contact-local-card-label,
+body.path-contact-local .contact-local-card-location h2,
+body.path-contact-local .contact-local-card-location p,
+body.path-contact-local .contact-local-card-location li,
+body.path-contact-local .contact-local-card-location strong,
+body.path-contact-local .contact-local-card-location a {
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-contact-local .contact-local-card-location .contact-local-card-label {
+  color: rgba(142, 27, 34, 0.85) !important;
+}
+
+body.path-contact-local .contact-local-card-location .contact-local-address {
+  text-decoration-color: rgba(142, 27, 34, 0.45) !important;
+}
+
+body.path-contact-local .contact-local-card-location .contact-local-address:hover,
+body.path-contact-local .contact-local-card-location .contact-local-address:focus-visible {
+  color: var(--ui-brand-blue) !important;
+  text-decoration-color: currentColor !important;
+}
+
 body.path-contact-local .contact-local-actions .sonoco-link,
 body.path-contact-local .contact-local-actions .sonoco-link:hover,
 body.path-contact-local .contact-local-actions .sonoco-link:focus-visible {
@@ -645,12 +734,16 @@ body.path-contact-local .contact-local-actions .sonoco-button:focus-visible {
   body.path-contact-local .contact-local-card-wide {
     grid-column: span 12;
   }
+
+  body.path-contact-local .contact-local-locations-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {
   body.path-contact-local .contact-local-hero {
-    min-height: 520px;
-    padding: 136px 0 24px;
+    min-height: 470px;
+    padding: 96px 0 20px;
   }
 
   body.path-contact-local .contact-local-hero h1 {
@@ -660,6 +753,10 @@ body.path-contact-local .contact-local-actions .sonoco-button:focus-visible {
   body.path-contact-local .contact-local-hero .contact-local-shell,
   body.path-contact-local .contact-local-card {
     padding: 24px 20px;
+  }
+
+  body.path-contact-local .contact-local-locations-block {
+    padding: 16px 0;
   }
 
   body.path-contact-local .contact-local-hero .contact-local-shell {
@@ -675,7 +772,7 @@ body.path-about-local .site-header {
 body.path-about-local .about-local-page {
   background: var(--ui-base-cream);
   color: var(--ui-ink-dark);
-  padding-bottom: 72px;
+  padding-bottom: 0;
 }
 
 body.path-about-local .about-local-shell {
@@ -969,38 +1066,84 @@ body.path-about-local .about-local-principle-card-values .about-local-principle-
   transform: scale(1.18);
 }
 
+body.path-about-local .about-local-principle-card-vision .about-local-principle-icon img {
+  width: 168px;
+  height: auto;
+  transform: none;
+}
+
 body.path-about-local .about-local-cta {
   padding-top: 12px;
-  padding-bottom: 56px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+body.path-about-local .about-local-cta .about-local-shell {
+  width: 100%;
+  max-width: none;
 }
 
 body.path-about-local .about-local-cta-card {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 24px;
-  align-items: center;
-  padding: 34px 36px;
-  border-radius: 34px;
-  background: var(--ui-base-cream);
-  background-color: var(--ui-base-cream);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  aspect-ratio: 1448 / 500;
+  min-height: clamp(21rem, 24vw, 26rem);
+  padding: clamp(1.75rem, 3.6vw, 3.4rem);
+  border-radius: 0;
+  overflow: hidden;
+  background-color: #2b1712;
+  background-image:
+    linear-gradient(90deg, rgba(43, 23, 18, 0.8) 0%, rgba(43, 23, 18, 0.58) 42%, rgba(43, 23, 18, 0.42) 100%),
+    url("assets/sacos-malla-banner.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.path-about-local .about-local-cta-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 body.path-about-local .about-local-cta-copy {
-  grid-column: span 8;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 48rem;
 }
 
 body.path-about-local .about-local-cta-copy .about-local-section-label,
 body.path-about-local .about-local-cta-copy h2,
 body.path-about-local .about-local-cta-copy p {
-  color: var(--ui-brand-blue);
+  color: var(--ui-base-cream);
+}
+
+body.path-about-local .about-local-cta-copy h2 {
+  font-size: clamp(2.1rem, 4vw, 4.2rem);
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.16),
+    0 0 18px rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
+}
+
+body.path-about-local .about-local-cta-copy p {
+  max-width: 32rem;
+  color: rgba(246, 241, 233, 0.94);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
 }
 
 body.path-about-local .about-local-cta-actions {
-  grid-column: span 4;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
   flex-direction: column;
+  margin-top: 0;
 }
 
 body.path-about-local .about-local-cta-actions .sonoco-button,
@@ -1012,6 +1155,7 @@ body.path-about-local .about-local-cta-actions .sonoco-button:focus-visible {
   background-image: none !important;
   color: var(--ui-base-cream) !important;
   --button-text-color: var(--ui-base-cream) !important;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.22);
 }
 
 body.path-about-local .about-local-cta-actions .sonoco-link,
@@ -1047,14 +1191,24 @@ body.path-about-local .about-local-cta-actions .sonoco-link:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  body.path-about-local .about-local-cta-card {
+    aspect-ratio: auto;
+    min-height: 24rem;
+    padding: 1.75rem 1.5rem;
+    background-size: cover;
+  }
+
+  body.path-about-local .about-local-cta-copy,
   body.path-about-local .about-local-cta-actions {
     justify-content: flex-start;
+    align-items: flex-start;
+    max-width: none;
   }
 }
 
 @media (max-width: 640px) {
   body.path-about-local .about-local-page {
-    padding-bottom: 56px;
+    padding-bottom: 0;
   }
 
   body.path-about-local .about-local-hero {
@@ -1066,6 +1220,12 @@ body.path-about-local .about-local-cta-actions .sonoco-link:focus-visible {
   body.path-about-local .about-local-cta-card {
     padding: 24px 20px;
     border-radius: 26px;
+  }
+
+  body.path-about-local .about-local-cta-card {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    border-radius: 0;
   }
 
   body.path-about-local .about-local-hero-media > img,
@@ -1495,6 +1655,67 @@ body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(
 }
 
 @media (min-width: 64rem) {
+  .main-navigation ul.menu-level-0 > li > .menu_link_content {
+    pointer-events: none !important;
+    visibility: hidden !important;
+  }
+
+  .main-navigation ul.menu-level-0 > li.sursac-product-menu-item {
+    position: relative !important;
+  }
+
+  .main-navigation ul.menu-level-0 > li.sursac-product-menu-item > .menu_link_content.sursac-product-dropdown {
+    position: absolute !important;
+    top: calc(100% + 0.35rem) !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: max-content !important;
+    min-width: 23rem !important;
+    max-width: 28rem !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 1.4rem 1.9rem !important;
+    overflow: hidden !important;
+  }
+
+  .main-navigation ul.menu-level-0 > li.sursac-product-menu-item.sursac-mega-open > .menu_link_content.sursac-product-dropdown {
+    display: block !important;
+  }
+
+  .main-navigation .sursac-product-dropdown .menu-subnav,
+  .main-navigation .sursac-product-dropdown .sursac-product-subnav {
+    width: auto !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-navigation .sursac-product-dropdown ul.menu-level-1,
+  .main-navigation .sursac-product-dropdown .sursac-product-menu-list {
+    display: grid !important;
+    gap: 1rem !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-navigation .sursac-product-dropdown ul.menu-level-1 > li {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-navigation .sursac-product-dropdown ul.menu-level-1 > li > a,
+  .main-navigation .sursac-product-dropdown .sursac-product-menu-list > li > a {
+    display: block !important;
+    width: max-content !important;
+    white-space: nowrap !important;
+    font-size: 1.15rem !important;
+    text-transform: none !important;
+    line-height: 1.05 !important;
+  }
+
   .main-navigation ul.menu-level-0 > li:has(> a[href="about.html"]) > .menu_link_content {
     display: none !important;
     opacity: 0 !important;
@@ -1508,8 +1729,10 @@ body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(
   .main-navigation ul.menu-level-0 > li.sursac-mega-open .menu-dropdown-0 {
     display: flex !important;
     opacity: 1 !important;
+    pointer-events: auto !important;
     transform: translateY(0) !important;
     transition-delay: 0s !important;
+    visibility: visible !important;
   }
 
   .main-navigation ul.menu-level-0 > li.sursac-mega-open > a:not(.sonoco-button) {
@@ -1579,6 +1802,16 @@ body.path-latam #stats-item-2401::after {
   border-color: var(--ui-carmine) !important;
 }
 
+body.path-latam #stats-item-2400,
+body.path-latam #stats-item-2400 .field-number,
+body.path-latam #stats-item-2400 .field-label {
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #stats-item-2400::after {
+  border-color: var(--ui-brand-blue) !important;
+}
+
 body.path-latam #stats-item-2402,
 body.path-latam #stats-item-2402 .field-number,
 body.path-latam #stats-item-2402 .field-label {
@@ -1587,6 +1820,22 @@ body.path-latam #stats-item-2402 .field-label {
 
 body.path-latam #stats-item-2402::after {
   border-color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #stats-layer-2404 .copy .sonoco-link,
+body.path-latam #stats-layer-2404 .copy .sonoco-link:hover,
+body.path-latam #stats-layer-2404 .copy .sonoco-link:focus,
+body.path-latam #stats-layer-2404 .copy .sonoco-link:focus-visible {
+  color: var(--ui-brand-blue) !important;
+  --link-text-color: var(--ui-brand-blue) !important;
+  --link-hover-color: var(--ui-brand-blue) !important;
+  --link-arrow-color: var(--ui-brand-blue) !important;
+}
+
+body.path-latam #stats-layer-2404 .copy .sonoco-link::after {
+  background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 12'%3E%3Cpath d='M12.5 5.4 7.8.7C7.5.4 7 .4 6.7.7s-.3.8 0 1.1l3.5 3.5H1c-.4 0-.8.2-.8.7s.3.8.8.8h9.1l-3.4 3.4c-.3.3-.3.8 0 1.1s.8.3 1.1 0l4.8-4.8c.3-.3.3-.8 0-1.1Z' fill='%238E1B22'/%3E%3C/svg%3E") no-repeat center !important;
+  background-size: contain !important;
+  filter: none !important;
 }
 
 body.path-latam #call-to-action-large-2414.call-to-action-large {
@@ -1617,7 +1866,7 @@ body.path-latam #call-to-action-large-2414 .wrap {
 }
 
 body.path-latam #call-to-action-large-2414 .field-headline h2 {
-  font-size: clamp(3.4rem, 5.8vw, 5.9rem) !important;
+  font-size: clamp(3rem, 5.15vw, 5.35rem) !important;
   line-height: 0.96 !important;
 }
 
@@ -1728,6 +1977,11 @@ body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon img {
   filter: none !important;
 }
 
+body.path-latam #launchpad-layer-icon-2413 .launchpad-icon-image--wide {
+  transform: scale(1.45);
+  transform-origin: center;
+}
+
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon .field-headline h3 {
   max-width: 220px;
   margin: 0 auto;
@@ -1768,18 +2022,37 @@ body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-ph
 
 body.path-latam #call-to-action-medium-2424 {
   background-color: #74151b !important;
-  background-image: linear-gradient(180deg, #8e1b22 0%, #74151b 55%, #5f1218 100%) !important;
+  background-image:
+    linear-gradient(90deg, rgba(116, 21, 27, 0.9) 0%, rgba(116, 21, 27, 0.8) 46%, rgba(95, 18, 24, 0.78) 100%),
+    url("assets/planta3.png") !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
 body.path-latam #call-to-action-medium-2424 .image {
-  background-color: #5f1218 !important;
-  background-image: linear-gradient(180deg, #6c141c 0%, #541016 100%) !important;
-  background-blend-mode: normal !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  opacity: 0 !important;
+}
+
+body.path-latam #call-to-action-medium-2424 .wrap {
+  display: flex !important;
+  align-items: center !important;
+  min-height: clamp(33rem, 40vw, 41rem) !important;
+  padding: 6.75em 2em 8.5em !important;
 }
 
 body.path-latam #call-to-action-medium-2424 .field-headline h2,
 body.path-latam #call-to-action-medium-2424 .field-headline h2 span {
   color: var(--ui-base-cream) !important;
+}
+
+body.path-latam #call-to-action-medium-2424 .field-headline h2 {
+  font-size: clamp(3.1rem, 6vw, 6.15rem) !important;
+  line-height: 0.95 !important;
+  margin-bottom: 0.32em !important;
 }
 
 body.path-latam #call-to-action-medium-2424 .sonoco-button,
@@ -1792,13 +2065,34 @@ body.path-latam #call-to-action-medium-2424 .sonoco-button:focus-visible {
   --button-text-color: var(--ui-brand-blue) !important;
 }
 
+@media (min-width: 48rem) {
+  body.path-latam #call-to-action-medium-2424 .wrap {
+    padding: 7.5em 3em 9.5em !important;
+  }
+}
+
+@media (min-width: 64rem) {
+  body.path-latam #call-to-action-medium-2424 .wrap {
+    padding: 8.75em 4em 11.25em !important;
+  }
+}
+
 body.path-na--products .site-header .header-navigation {
   display: none !important;
 }
 
-body.path-na--products .site-header .main-navigation ul.menu-level-0 > li:has(> a[href="https://es-la.sonoco.com/na/markets"]),
-body.path-na--products .site-header .main-navigation ul.menu-level-0 > li:has(> a[href="https://es-la.sonoco.com/resources"]) {
-  display: none !important;
+body.path-na--products .site-header {
+  background: var(--ui-base-cream) !important;
+}
+
+body.path-na--products .site-header .wrap {
+  background: var(--ui-base-cream) !important;
+}
+
+body.path-na--products .site-header .site-logo-image {
+  filter: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 body.path-na--products .region.region--sub-header,
@@ -1807,11 +2101,249 @@ body.path-na--products #block-sonoco-nasectionnavigation {
   display: none !important;
 }
 
+body.path-na--products .products-hero {
+  position: relative;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  overflow: hidden;
+  background: #1e1612;
+}
+
+body.path-na--products .products-hero__media {
+  position: relative;
+  min-height: clamp(30rem, 47vw, 52rem);
+}
+
+body.path-na--products .products-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(30, 22, 18, 0.34) 0%, rgba(30, 22, 18, 0.28) 32%, rgba(30, 22, 18, 0.46) 100%);
+}
+
+body.path-na--products .products-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(30rem, 47vw, 52rem);
+  object-fit: cover;
+  object-position: center center;
+}
+
+body.path-na--products .products-hero__copy {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem 4.5rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+body.path-na--products .products-hero__copy h1 {
+  max-width: 15ch;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3.3rem, 6.4vw, 6.6rem);
+  font-weight: 700;
+  line-height: 0.96;
+  text-wrap: balance;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+body.path-na--products .products-hero__copy p:last-child {
+  margin: 0;
+  max-width: 48rem;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(1rem, 1.6vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.5;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
 body.path-na--products .page-title,
+body.path-na--products .page-header,
+body.path-na--products #header-background-photo-1421,
 body.path-na--products #spotlight-photo-2831,
 body.path-na--products #spotlight-photo-1444,
 body.path-na--products #list-columns-layer-1454 {
   display: none !important;
+}
+
+body.path-na--products .launchpad-item-large-photo .text > a,
+body.path-na--products .launchpad-item-large-photo .text > a:hover,
+body.path-na--products .launchpad-item-large-photo .text > a:focus,
+body.path-na--products .launchpad-item-large-photo .text > a:focus-visible,
+body.path-na--products .launchpad-item-large-photo .text > a:visited,
+body.path-na--products .launchpad-item-large-photo .text > a:visited:hover {
+  color: var(--ui-brand-blue) !important;
+  text-decoration: none !important;
+  text-decoration-color: currentColor !important;
+  --link-text-color: var(--ui-brand-blue) !important;
+  --link-hover-color: var(--ui-brand-blue) !important;
+  --link-arrow-color: var(--ui-brand-blue) !important;
+}
+
+body.path-na--products .launchpad-item-large-photo .field-headline h3 {
+  color: var(--ui-brand-blue) !important;
+}
+
+body.path-na--products .launchpad-item-large-photo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: min(100%, 36rem);
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 2rem;
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+body.path-na--products .launchpad-item-large-photo .text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.35rem 1.35rem 1.5rem;
+}
+
+body.path-na--products #launchpad-layer-large-photo-1426 .wrap {
+  width: min(1240px, calc(100% - 56px)) !important;
+}
+
+body.path-na--products #launchpad-layer-large-photo-1426 .field-launchpad-items {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(1.5rem, 2vw, 2.15rem) !important;
+  align-items: stretch !important;
+}
+
+body.path-na--products #launchpad-item-large-photo-1424 > a,
+body.path-na--products #launchpad-item-large-photo-1425 > a,
+body.path-na--products #launchpad-item-large-photo-1445 > a,
+body.path-na--products #launchpad-item-large-photo-1443 > a,
+body.path-na--products #launchpad-item-large-photo-1436 > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 260px;
+  padding: 1rem;
+  line-height: 0;
+  background: #faf6f0 !important;
+  background-color: #faf6f0 !important;
+  border-bottom: 1px solid rgba(142, 27, 34, 0.14);
+  border-radius: 2rem 2rem 0 0;
+  overflow: hidden;
+}
+
+body.path-na--products .product-image-rotator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 0;
+  background: transparent !important;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  min-height: 100% !important;
+}
+
+body.path-na--products #launchpad-item-large-photo-1424 .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
+body.path-na--products #launchpad-item-large-photo-1425 .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
+body.path-na--products #launchpad-item-large-photo-1443 .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
+body.path-na--products #launchpad-item-large-photo-1436 .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
+body.path-na--products #launchpad-layer-large-photo-1426 .launchpad-item-large-photo .product-image-rotator {
+  max-width: none !important;
+  min-height: 100% !important;
+}
+
+body.path-na--products #launchpad-item-large-photo-1436 .product-image {
+  max-width: 80% !important;
+  max-height: 80% !important;
+}
+
+body.path-na--products .product-image {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  display: block !important;
+  width: auto !important;
+  height: 84% !important;
+  max-width: 88% !important;
+  max-height: 84% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.path-na--products .product-image {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 63.9375rem) {
+  body.path-na--products .products-hero {
+    margin-bottom: 1rem;
+  }
+
+  body.path-na--products .products-hero__media,
+  body.path-na--products .products-hero__image {
+    min-height: 22rem;
+  }
+
+  body.path-na--products .products-hero__copy {
+    padding: 2rem 1.25rem 2.6rem;
+    gap: 0.9rem;
+  }
+
+  body.path-na--products .products-hero__copy h1 {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+
+  body.path-na--products .products-hero__copy p:last-child {
+    font-size: 1rem;
+  }
+
+  body.path-na--products #launchpad-layer-large-photo-1426 .wrap {
+    width: min(100%, calc(100% - 32px)) !important;
+  }
+
+  body.path-na--products #launchpad-layer-large-photo-1426 .field-launchpad-items {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* =========================
