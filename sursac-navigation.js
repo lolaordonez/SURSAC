@@ -2,7 +2,10 @@
   const productItems = [
     { label: "Sacos Leno Original", href: "products.html#launchpad-item-large-photo-1424" },
     { label: "Sacos Leno Plus", href: "products.html#launchpad-item-large-photo-1425" },
+    { label: "Sacos Tejidos", href: "products.html#launchpad-item-large-photo-sacos-tejidos" },
     { label: "Sacos Impresos", href: "products.html#launchpad-item-large-photo-1445" },
+    { label: "Sacos Impresos con Asa", href: "products.html#launchpad-item-large-photo-sacos-impresos-con-asa" },
+    { label: "Saco Transparente", href: "products.html#launchpad-item-large-photo-saco-transparente" },
     { label: "Telas De Polipropileno", href: "products.html#launchpad-item-large-photo-1443" },
     { label: "Piolas", href: "products.html#launchpad-item-large-photo-1436" }
   ];

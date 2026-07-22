@@ -1634,6 +1634,31 @@ body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-ph
   filter: none !important;
 }
 
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo,
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo img {
+  box-shadow: none !important;
+}
+
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo img,
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo:hover img,
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo:focus-visible img {
+  filter: none !important;
+}
+
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo .block {
+  background-image: none !important;
+  text-shadow: none !important;
+}
+
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo h3 {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.24);
+}
+
+body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-photo .field-text {
+  background: rgba(142, 27, 34, 0.84) !important;
+  background-image: none !important;
+}
+
 .header-homepage .header-seal b,
 .header-homepage .header-seal span,
 .header-homepage .header-seal sup {
@@ -1888,26 +1913,39 @@ body.path-latam #call-to-action-large-2414 .field-text img {
    Cambia acentos verdes a rojo vino.
    ========================= */
 
-body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a {
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon {
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.1) !important;
+  filter: none !important;
+  transform-origin: center;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 
-body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon {
-  box-shadow: none !important;
-  filter: none !important;
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  transition: box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon:hover,
+body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon:focus-within {
+  box-shadow: 0 20px 42px rgba(17, 17, 17, 0.15) !important;
+  transform: scale(1.03);
 }
 
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.swiper-slide-active > a,
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.slick-current > a,
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon.slick-active > a {
-  box-shadow: inset 0 18px 0 var(--ui-brand-blue) !important;
+  background: linear-gradient(to bottom, var(--ui-brand-blue) 0 28px, #ffffff 28px 100%) !important;
+  border-top-color: var(--ui-brand-blue) !important;
+  box-shadow: none !important;
 }
 
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:hover,
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:focus,
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a:focus-visible {
-  box-shadow: inset 0 18px 0 var(--ui-brand-blue) !important;
-  border-color: var(--ui-brand-blue) !important;
+  background: linear-gradient(to bottom, var(--ui-brand-blue) 0 28px, #ffffff 28px 100%) !important;
+  border-top-color: var(--ui-brand-blue) !important;
+  box-shadow: none !important;
 }
 
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon > a::before,
@@ -1927,34 +1965,111 @@ body.path-latam #launchpad-layer-icon-2413 .slick-dots li.slick-active button::b
   color: var(--ui-brand-blue) !important;
 }
 
+body.path-latam #launchpad-layer-icon-2413 .field-launchpad-items,
+body.path-latam #launchpad-layer-icon-2413 .field-launchpad-items.slick-slider {
+  position: relative;
+}
+
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
 body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow,
 body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
-  background: transparent !important;
-  background-color: transparent !important;
-  color: inherit !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 58px !important;
+  height: 58px !important;
+  background: var(--ui-brand-blue) !important;
+  background-color: var(--ui-brand-blue) !important;
+  color: transparent !important;
   border: 0 !important;
-  box-shadow: none !important;
+  border-radius: 999px !important;
+  box-shadow: 0 18px 34px rgba(96, 13, 18, 0.24) !important;
   filter: none !important;
-  text-indent: -9999px !important;
-  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  text-indent: 0 !important;
+  overflow: visible !important;
+  margin-top: 0 !important;
+  top: calc(50% - 28px) !important;
+  z-index: 40 !important;
+  rotate: 0deg !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+    background-color 0.22s ease !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next::before,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev::before,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::before,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::before {
+  content: none !important;
+  display: none !important;
 }
 
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-next::after,
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev::after,
-body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::before,
-body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::before,
 body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::after,
 body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::after {
-  color: var(--ui-brand-blue) !important;
-  background: transparent !important;
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
   background-color: transparent !important;
-  border: 0 !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
   box-shadow: none !important;
   opacity: 1 !important;
   filter: none !important;
   text-indent: 0 !important;
+  color: transparent !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
+  left: -18px !important;
+  right: auto !important;
+  transform: translateY(-50%) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow {
+  right: -18px !important;
+  left: auto !important;
+  transform: translateY(-50%) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev::after,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::after {
+  background-image: url("assets/flecha1.svg") !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next::after,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::after {
+  background-image: url("assets/flecha2.svg") !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next:hover,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev:hover,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-next:focus-visible,
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev:focus-visible,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow:hover,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow:hover,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow:focus-visible,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow:focus-visible {
+  background: #7f1920 !important;
+  background-color: #7f1920 !important;
+  box-shadow: 0 22px 42px rgba(96, 13, 18, 0.28) !important;
+  transform: translateY(-50%) scale(1.06) !important;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .swiper-button-disabled,
+body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow.slick-disabled,
+body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow.slick-disabled {
+  opacity: 0.38 !important;
 }
 
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-next svg,
@@ -1963,9 +2078,36 @@ body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow svg,
 body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow svg,
 body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow img,
 body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow img {
-  fill: var(--ui-brand-blue) !important;
-  stroke: var(--ui-brand-blue) !important;
-  filter: sepia(1) saturate(8) hue-rotate(305deg) brightness(0.55) !important;
+  display: none !important;
+}
+
+@media (max-width: 979px) {
+  body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
+  body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
+  body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow,
+  body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
+    width: 52px !important;
+    height: 52px !important;
+    top: calc(50% - 24px) !important;
+  }
+
+  body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
+  body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
+    left: 10px !important;
+  }
+
+  body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
+  body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow {
+    right: 10px !important;
+  }
+
+  body.path-latam #launchpad-layer-icon-2413 .swiper-button-next::after,
+  body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev::after,
+  body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow::after,
+  body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow::after {
+    width: 34px !important;
+    height: 34px !important;
+  }
 }
 
 body.path-latam #launchpad-layer-icon-2413 .launchpad-item-icon img {
@@ -2111,7 +2253,7 @@ body.path-na--products .products-hero {
 
 body.path-na--products .products-hero__media {
   position: relative;
-  min-height: clamp(30rem, 47vw, 52rem);
+  min-height: clamp(26rem, 40vw, 45rem);
 }
 
 body.path-na--products .products-hero__media::after {
@@ -2126,7 +2268,7 @@ body.path-na--products .products-hero__image {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: clamp(30rem, 47vw, 52rem);
+  min-height: clamp(26rem, 40vw, 45rem);
   object-fit: cover;
   object-position: center center;
 }
@@ -2227,8 +2369,11 @@ body.path-na--products #launchpad-layer-large-photo-1426 .field-launchpad-items 
 
 body.path-na--products #launchpad-item-large-photo-1424 > a,
 body.path-na--products #launchpad-item-large-photo-1425 > a,
+body.path-na--products #launchpad-item-large-photo-sacos-tejidos > a,
 body.path-na--products #launchpad-item-large-photo-1445 > a,
+body.path-na--products #launchpad-item-large-photo-sacos-impresos-con-asa > a,
 body.path-na--products #launchpad-item-large-photo-1443 > a,
+body.path-na--products #launchpad-item-large-photo-saco-transparente > a,
 body.path-na--products #launchpad-item-large-photo-1436 > a {
   display: flex;
   align-items: center;
@@ -2272,7 +2417,22 @@ body.path-na--products #launchpad-item-large-photo-1425 .product-image-rotator {
   min-height: 100%;
 }
 
+body.path-na--products #launchpad-item-large-photo-sacos-tejidos .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
+body.path-na--products #launchpad-item-large-photo-sacos-impresos-con-asa .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
 body.path-na--products #launchpad-item-large-photo-1443 .product-image-rotator {
+  max-width: none;
+  min-height: 100%;
+}
+
+body.path-na--products #launchpad-item-large-photo-saco-transparente .product-image-rotator {
   max-width: none;
   min-height: 100%;
 }
