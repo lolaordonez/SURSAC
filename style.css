@@ -1651,7 +1651,7 @@ body.path-latam #launchpad-layer-homepage-photo-2399 .launchpad-item-homepage-ph
 body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .main-navigation ul.menu-level-0 > li > a:not(.sonoco-button),
 body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .header-navigation ul li a,
 body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(.shrink-header) .site-header:not(:hover, :focus-within) .region-toggle {
-  color: var(--ui-on-dark) !important;
+  color: var(--ui-brand-blue) !important;
 }
 
 @media (min-width: 64rem) {
