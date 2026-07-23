@@ -136,6 +136,55 @@
     subnav.dataset.sursacProductsNormalized = "true";
   }
 
+  function ensureMobileProductToggle(menuItem) {
+    if (!menuItem) return;
+
+    const dropdown = menuItem.querySelector(":scope > .menu_link_content");
+    if (!dropdown) return;
+
+    if (desktopMediaQuery.matches) {
+      menuItem.querySelectorAll(":scope > .sursac-mobile-plus").forEach((button) => {
+        button.remove();
+      });
+      dropdown.style.display = "";
+      return;
+    }
+
+    menuItem.querySelectorAll(":scope > .plus").forEach((button) => button.remove());
+
+    let toggle = menuItem.querySelector(":scope > .sursac-mobile-plus");
+    if (!toggle) {
+      toggle = document.createElement("button");
+      toggle.type = "button";
+      toggle.className = "sursac-mobile-plus";
+      menuItem.insertBefore(toggle, dropdown);
+    }
+
+    const syncState = () => {
+      const isOpen = menuItem.classList.contains("open");
+      toggle.classList.toggle("plus-open", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.setAttribute(
+        "aria-label",
+        isOpen ? "Ocultar submenu de Productos" : "Mostrar submenu de Productos"
+      );
+      dropdown.style.display = isOpen ? "block" : "none";
+    };
+
+    if (toggle.dataset.sursacToggleBound !== "true") {
+      toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        menuItem.classList.toggle("open");
+        syncState();
+      });
+
+      toggle.dataset.sursacToggleBound = "true";
+    }
+
+    syncState();
+  }
+
   function normalizeProductMenus(root) {
     root.querySelectorAll("a.complexflyout-products").forEach((link) => {
       normalizeProductTrigger(link);
@@ -143,6 +192,7 @@
       const menuItem = link.closest("li.menu-item");
       if (menuItem) {
         normalizeProductDropdown(menuItem);
+        ensureMobileProductToggle(menuItem);
       }
     });
   }
@@ -168,7 +218,7 @@
   }
 
   function bindSustainabilityTriggerNavigation(link) {
-    bindDirectLinkNavigation(link, "sursacSustainabilityTriggerBound");
+    return link;
   }
 
   function isAboutTrigger(link) {
@@ -210,7 +260,6 @@
       .forEach((link) => {
         if (!isSustainabilityTrigger(link)) return;
         normalizeSustainabilityTrigger(link);
-        bindSustainabilityTriggerNavigation(link);
       });
   }
 
@@ -291,6 +340,156 @@
     ].join("");
   }
 
+  function dedupeMobilePlusButtons(root) {
+    root.querySelectorAll(".main-navigation li").forEach((menuItem) => {
+      if (menuItem.classList.contains("sursac-product-menu-item")) {
+        return;
+      }
+
+      const plusButtons = Array.from(menuItem.children).filter(
+        (child) => child.matches && child.matches(".plus")
+      );
+
+      if (plusButtons.length < 2) return;
+
+      plusButtons.slice(1).forEach((button) => button.remove());
+    });
+  }
+
+  function syncMobileProductMenus(root) {
+    root.querySelectorAll(".sursac-product-menu-item").forEach((menuItem) => {
+      ensureMobileProductToggle(menuItem);
+    });
+  }
+
+  function syncMobileMenuToggle(root) {
+    const toggle = root.querySelector(".menu-toggle");
+    if (!toggle) return;
+
+    const label = toggle.querySelector("span");
+    const isNavOpen = !!(root.body && root.body.classList.contains("nav-open"));
+
+    if (label) {
+      label.textContent = isNavOpen ? "" : "Menu";
+    }
+
+    toggle.setAttribute("aria-label", isNavOpen ? "Cerrar menu" : "Abrir menu");
+    toggle.setAttribute("aria-expanded", isNavOpen ? "true" : "false");
+  }
+
+  const popupDismissKey = "sursacLeadPopupDismissed";
+  let popupScheduled = false;
+  let popupOpenBound = false;
+
+  function isLeadPopupDismissed() {
+    try {
+      return window.sessionStorage.getItem(popupDismissKey) === "true";
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function setLeadPopupDismissed() {
+    try {
+      window.sessionStorage.setItem(popupDismissKey, "true");
+    } catch (error) {
+      // Ignore storage failures and still close the popup for this page view.
+    }
+  }
+
+  function closeLeadPopup() {
+    const popup = document.querySelector(".sursac-lead-popup");
+    if (!popup) return;
+
+    popup.classList.remove("is-visible");
+    popup.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("sursac-popup-open");
+    setLeadPopupDismissed();
+  }
+
+  function openLeadPopup() {
+    const popup = document.querySelector(".sursac-lead-popup");
+    if (!popup || isLeadPopupDismissed()) return;
+
+    popup.classList.add("is-visible");
+    popup.setAttribute("aria-hidden", "false");
+    document.body.classList.add("sursac-popup-open");
+  }
+
+  function bindLeadPopupEvents(popup) {
+    if (!popup || popupOpenBound) return;
+
+    const closeButton = popup.querySelector(".sursac-lead-popup__close");
+    if (closeButton) {
+      closeButton.addEventListener("click", () => {
+        closeLeadPopup();
+      });
+    }
+
+    popup.addEventListener("click", (event) => {
+      if (event.target === popup) {
+        closeLeadPopup();
+      }
+    });
+
+    popup.querySelectorAll(".sursac-lead-popup__action").forEach((link) => {
+      link.addEventListener("click", () => {
+        setLeadPopupDismissed();
+      });
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLeadPopup();
+      }
+    });
+
+    popupOpenBound = true;
+  }
+
+  function ensureLeadPopup(root) {
+    if (!root.body || root.body.dataset.sursacLeadPopupMounted === "true") return;
+
+    const popup = document.createElement("div");
+    popup.className = "sursac-lead-popup";
+    popup.setAttribute("aria-hidden", "true");
+    popup.innerHTML = [
+      '<div class="sursac-lead-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="sursac-lead-popup-title">',
+      '  <button type="button" class="sursac-lead-popup__close" aria-label="Cerrar ventana de contacto">×</button>',
+      '  <div class="sursac-lead-popup__media">',
+      '    <img src="assets/banners/productos_banner.png?v=20260722-122200" alt="Sacos y mallas SURSAC" />',
+      "  </div>",
+      '  <div class="sursac-lead-popup__content">',
+      '    <p class="sursac-lead-popup__eyebrow">Contacto directo</p>',
+      '    <h2 id="sursac-lead-popup-title">¿Necesitas sacos?</h2>',
+      '    <p class="sursac-lead-popup__copy">Cotiza directo con nuestro equipo.</p>',
+      '    <div class="sursac-lead-popup__actions">',
+      '      <a class="sursac-lead-popup__action" href="tel:+593996804001">',
+      '        <span class="sursac-lead-popup__icon" aria-hidden="true">📞</span>',
+      '        <span>099 680 4001</span>',
+      "      </a>",
+      '      <a class="sursac-lead-popup__action sursac-lead-popup__action--whatsapp" href="https://wa.me/593996804001" target="_blank" rel="noopener noreferrer">',
+      '        <span class="sursac-lead-popup__icon" aria-hidden="true">💬</span>',
+      '        <span>WhatsApp: 099 680 4001</span>',
+      "      </a>",
+      "    </div>",
+      "  </div>",
+      "</div>"
+    ].join("\n");
+
+    root.body.appendChild(popup);
+    root.body.dataset.sursacLeadPopupMounted = "true";
+    bindLeadPopupEvents(popup);
+
+    if (isLeadPopupDismissed() || popupScheduled) return;
+
+    popupScheduled = true;
+    window.setTimeout(() => {
+      popupScheduled = false;
+      openLeadPopup();
+    }, 1400);
+  }
+
   let scheduled = false;
 
   function scheduleNormalization() {
@@ -303,7 +502,11 @@
       disableDirectLinkMegaMenus(document);
       normalizeSustainabilityMenus(document);
       normalizeProductMenus(document);
+      dedupeMobilePlusButtons(document);
+      syncMobileProductMenus(document);
+      syncMobileMenuToggle(document);
       bindDesktopMegaMenus(document);
+      ensureLeadPopup(document);
     });
   }
 
@@ -327,4 +530,14 @@
 
   const observer = new MutationObserver(scheduleNormalization);
   observer.observe(document.body, { childList: true, subtree: true });
+
+  const bodyClassObserver = new MutationObserver(() => {
+    syncMobileProductMenus(document);
+    syncMobileMenuToggle(document);
+  });
+
+  bodyClassObserver.observe(document.body, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });
 })();
