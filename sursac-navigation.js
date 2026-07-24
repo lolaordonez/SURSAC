@@ -340,6 +340,33 @@
     ].join("");
   }
 
+  function isLocalInnerPage(root) {
+    if (!root.body) return false;
+
+    return (
+      root.body.classList.contains("path-about-local") ||
+      root.body.classList.contains("path-contact-local") ||
+      root.body.classList.contains("path-sustainability-local") ||
+      root.body.classList.contains("path-na--products")
+    );
+  }
+
+  function ensureLocalMobileHeaderToggle(root) {
+    if (!isLocalInnerPage(root)) return;
+
+    const headerWrap = root.querySelector(".site-header > .wrap");
+    if (!headerWrap) return;
+
+    let toggle = headerWrap.querySelector(":scope > .menu-toggle");
+    if (!toggle) {
+      toggle = document.createElement("a");
+      toggle.href = "#";
+      toggle.className = "menu-toggle";
+      toggle.innerHTML = "<span>Menu</span><i></i>";
+      headerWrap.appendChild(toggle);
+    }
+  }
+
   function dedupeMobilePlusButtons(root) {
     root.querySelectorAll(".main-navigation li").forEach((menuItem) => {
       if (menuItem.classList.contains("sursac-product-menu-item")) {
@@ -375,6 +402,25 @@
 
     toggle.setAttribute("aria-label", isNavOpen ? "Cerrar menu" : "Abrir menu");
     toggle.setAttribute("aria-expanded", isNavOpen ? "true" : "false");
+  }
+
+  function bindLocalMobileHeaderToggle(root) {
+    if (!isLocalInnerPage(root)) return;
+
+    const toggle = root.querySelector(".site-header > .wrap > .menu-toggle");
+    if (!toggle || toggle.dataset.sursacMobileMenuBound === "true") return;
+
+    toggle.addEventListener("click", (event) => {
+      if (desktopMediaQuery.matches) return;
+
+      event.preventDefault();
+
+      if (!root.body) return;
+      root.body.classList.toggle("nav-open");
+      syncMobileMenuToggle(root);
+    });
+
+    toggle.dataset.sursacMobileMenuBound = "true";
   }
 
   const popupDismissKey = "sursacLeadPopupDismissed";
@@ -499,11 +545,13 @@
     requestAnimationFrame(() => {
       scheduled = false;
       normalizeProductsPageHeader(document);
+      ensureLocalMobileHeaderToggle(document);
       disableDirectLinkMegaMenus(document);
       normalizeSustainabilityMenus(document);
       normalizeProductMenus(document);
       dedupeMobilePlusButtons(document);
       syncMobileProductMenus(document);
+      bindLocalMobileHeaderToggle(document);
       syncMobileMenuToggle(document);
       bindDesktopMegaMenus(document);
       ensureLeadPopup(document);
@@ -521,7 +569,11 @@
   window.addEventListener("load", scheduleNormalization);
 
   desktopMediaQuery.addEventListener("change", (event) => {
-    if (event.matches) return;
+    if (document.body && event.matches) {
+      document.body.classList.remove("nav-open");
+      syncMobileMenuToggle(document);
+      return;
+    }
 
     document
       .querySelectorAll(".main-navigation ul.menu-level-0 > li.sursac-mega-open")
