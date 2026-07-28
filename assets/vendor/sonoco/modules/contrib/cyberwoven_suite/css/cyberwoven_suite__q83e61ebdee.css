@@ -1,0 +1,27 @@
+/* ==========================================================================
+	Additional Styles
+========================================================================== */
+
+.layout-region div,
+.entity-meta .seven-details:last-child {
+  border-radius: 0 !important;
+}
+
+.layout-region-node-main, .layout-region-node-footer {
+  float: none;
+  width: 100%;
+  padding-right: 0;
+}
+
+.layout-region-node-main .layout-region__content, .layout-region--node-footer .layout-region__content {
+  max-width: none;
+}
+
+.layout-region-node-secondary {
+  float: none;
+  width: 100%;
+}
+
+.text-format-wrapper .form-type-textarea {
+  margin-bottom: 0 !important;
+}
