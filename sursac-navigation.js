@@ -331,7 +331,7 @@
       '          <li class="menu-item"><a href="products.html" aria-current="page">Productos</a></li>',
       '          <li class="menu-item"><a href="sustainability.html">Sostenibilidad</a></li>',
       '          <li class="menu-item"><a href="about.html">Acerca de nosotros</a></li>',
-      '          <li class="menu-item"><a href="contact.html" class="sonoco-button" style="background:#8E1B22 !important; background-color:#8E1B22 !important; background-image:none !important; color:#F6F1E9 !important;">Contáctanos</a></li>',
+      '          <li class="menu-item"><a href="contact.html" class="sursac-button" style="background:#8E1B22 !important; background-color:#8E1B22 !important; background-image:none !important; color:#F6F1E9 !important;">Contáctanos</a></li>',
       "        </ul>",
       "      </nav>",
       "    </div>",
@@ -343,12 +343,7 @@
   function isLocalInnerPage(root) {
     if (!root.body) return false;
 
-    return (
-      root.body.classList.contains("path-about-local") ||
-      root.body.classList.contains("path-contact-local") ||
-      root.body.classList.contains("path-sustainability-local") ||
-      root.body.classList.contains("path-na--products")
-    );
+    return root.body.classList.contains("path-latam");
   }
 
   function ensureLocalMobileHeaderToggle(root) {
