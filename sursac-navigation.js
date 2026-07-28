@@ -531,6 +531,50 @@
     }, 1400);
   }
 
+  let animationObserver = null;
+
+  function initializeScrollAnimations(root) {
+    const elements = [
+      ...root.querySelectorAll(".animate"),
+      ...root.querySelectorAll(".animate-children > *")
+    ].filter((element) => element.dataset.sursacAnimationBound !== "true");
+
+    if (!elements.length) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+      elements.forEach((element) => {
+        element.classList.add("animated");
+        element.dataset.sursacAnimationBound = "true";
+      });
+      return;
+    }
+
+    if (!animationObserver) {
+      animationObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("animated");
+            animationObserver.unobserve(entry.target);
+          });
+        },
+        {
+          rootMargin: "0px 0px -5% 0px",
+          threshold: 0.05
+        }
+      );
+    }
+
+    elements.forEach((element) => {
+      element.dataset.sursacAnimationBound = "true";
+      animationObserver.observe(element);
+    });
+  }
+
   let scheduled = false;
 
   function scheduleNormalization() {
@@ -549,6 +593,7 @@
       bindLocalMobileHeaderToggle(document);
       syncMobileMenuToggle(document);
       bindDesktopMegaMenus(document);
+      initializeScrollAnimations(document);
       ensureLeadPopup(document);
     });
   }
