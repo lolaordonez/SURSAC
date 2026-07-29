@@ -2625,6 +2625,15 @@ body:has(.page-header .theme-blue, .header-background-photo):not(.nav-open):not(
     display: block !important;
   }
 
+  .main-navigation ul.menu-level-0 > li.sursac-product-menu-item:hover > .menu_link_content.sursac-product-dropdown,
+  .main-navigation ul.menu-level-0 > li.sursac-product-menu-item:focus-within > .menu_link_content.sursac-product-dropdown {
+    display: flex !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+  }
+
   .main-navigation .sursac-product-dropdown .menu-subnav,
   .main-navigation .sursac-product-dropdown .sursac-product-subnav {
     width: auto !important;
@@ -2885,6 +2894,52 @@ body.path-latam #launchpad-layer-icon-2413 .slick-dots li.slick-active button::b
 body.path-latam #launchpad-layer-icon-2413 .field-launchpad-items,
 body.path-latam #launchpad-layer-icon-2413 .field-launchpad-items.slick-slider {
   position: relative;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel-viewport {
+  position: relative;
+  overflow: visible;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 4.5rem) / 4);
+  gap: 1.5rem;
+  margin: 0;
+  padding: 1.5rem 0 2.25rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel > .launchpad-item-icon {
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel-button:disabled {
+  opacity: 0.35 !important;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 63.9375rem) {
+  body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel {
+    grid-auto-columns: calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (max-width: 35.9375rem) {
+  body.path-latam #launchpad-layer-icon-2413 .sursac-product-carousel {
+    grid-auto-columns: 100%;
+  }
 }
 
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
