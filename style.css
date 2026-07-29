@@ -2946,6 +2946,7 @@ body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
 body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow,
 body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
+  position: absolute !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -3208,14 +3209,14 @@ body.sursac-popup-open {
 
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-prev,
 body.path-latam #launchpad-layer-icon-2413 button.slick-prev.slick-arrow {
-  left: -18px !important;
+  left: 0 !important;
   right: auto !important;
   transform: translateY(-50%) !important;
 }
 
 body.path-latam #launchpad-layer-icon-2413 .swiper-button-next,
 body.path-latam #launchpad-layer-icon-2413 button.slick-next.slick-arrow {
-  right: -18px !important;
+  right: 0 !important;
   left: auto !important;
   transform: translateY(-50%) !important;
 }

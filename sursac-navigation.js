@@ -594,10 +594,18 @@
     };
 
     previousButton.addEventListener("click", () => {
-      carousel.scrollBy({ left: -getScrollDistance(), behavior: "smooth" });
+      carousel.scrollLeft = Math.max(
+        0,
+        carousel.scrollLeft - getScrollDistance()
+      );
+      updateButtons();
     });
     nextButton.addEventListener("click", () => {
-      carousel.scrollBy({ left: getScrollDistance(), behavior: "smooth" });
+      carousel.scrollLeft = Math.min(
+        carousel.scrollWidth - carousel.clientWidth,
+        carousel.scrollLeft + getScrollDistance()
+      );
+      updateButtons();
     });
     carousel.addEventListener("scroll", updateButtons, { passive: true });
     window.addEventListener("resize", updateButtons);
