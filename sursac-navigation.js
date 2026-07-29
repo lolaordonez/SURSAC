@@ -511,6 +511,7 @@
 
   function ensureLeadPopup(root) {
     if (!root.body || root.body.dataset.sursacLeadPopupMounted === "true") return;
+    if (root.body.classList.contains("path-legal-local")) return;
 
     const popup = document.createElement("div");
     popup.className = "sursac-lead-popup";

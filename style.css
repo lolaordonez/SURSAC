@@ -3725,3 +3725,110 @@ body.path-na--products .product-image {
    Requiere intervenir las formas y assets del hero.
    No basta con cambiar una variable sin afectar el layout.
    ========================= */
+
+/* Legal pages */
+body.path-legal-local {
+  background:
+    radial-gradient(circle at 92% 9%, rgba(142, 27, 34, 0.1), transparent 25rem),
+    var(--ui-base-cream);
+}
+
+body.path-legal-local .main-content {
+  padding-top: clamp(8.5rem, 12vw, 12rem);
+}
+
+body.path-legal-local .legal-page {
+  width: min(100% - 2rem, 74rem);
+  margin: 0 auto;
+  padding: 0 0 clamp(4rem, 8vw, 7rem);
+}
+
+body.path-legal-local .legal-page__header {
+  max-width: 58rem;
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+body.path-legal-local .legal-page__eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--ui-brand-blue);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+body.path-legal-local .legal-page__header h1 {
+  margin: 0 0 1rem;
+  color: var(--ui-brand-blue);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+body.path-legal-local .legal-page__updated {
+  margin: 0;
+  color: var(--ui-carmine);
+  font-weight: 700;
+}
+
+body.path-legal-local .legal-page__content {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.5rem, 4vw, 4rem);
+  border-radius: clamp(1.25rem, 3vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 24px 70px rgba(62, 23, 24, 0.1);
+}
+
+body.path-legal-local .legal-page__section {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(142, 27, 34, 0.16);
+}
+
+body.path-legal-local .legal-page__section:last-child {
+  border-bottom: 0;
+}
+
+body.path-legal-local .legal-page__section h2 {
+  margin: 0 0 0.8rem;
+  color: var(--ui-brand-blue);
+  font-size: clamp(1.45rem, 2.3vw, 2.1rem);
+  font-weight: 800;
+}
+
+body.path-legal-local .legal-page__section p,
+body.path-legal-local .legal-page__section li {
+  color: #4a292a;
+  font-size: clamp(1rem, 1.35vw, 1.12rem);
+  line-height: 1.75;
+}
+
+body.path-legal-local .legal-page__section p:last-child,
+body.path-legal-local .legal-page__section ul:last-child {
+  margin-bottom: 0;
+}
+
+body.path-legal-local .legal-page__section a {
+  color: var(--ui-brand-blue);
+  font-weight: 700;
+}
+
+body.path-legal-local .legal-page__details {
+  padding: 1.25rem 1.4rem;
+  border-left: 4px solid var(--ui-brand-blue);
+  background: var(--ui-base-cream);
+}
+
+@media (max-width: 47.9375rem) {
+  body.path-legal-local .main-content {
+    padding-top: 7rem;
+  }
+
+  body.path-legal-local .legal-page {
+    width: min(100% - 1.25rem, 74rem);
+  }
+
+  body.path-legal-local .legal-page__content {
+    padding: 1rem 1.25rem;
+  }
+}
