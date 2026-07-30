@@ -123,30 +123,6 @@
                                 <source src="assets/video_principal.mp4" type="video/mp4" />
                               </video>
 
-                <button id="hero-video-toggle">Pause</button>
-                <script>
-                  const heroVideo = document.getElementById('hero-video-local');
-                  const toggleBtn = document.getElementById('hero-video-toggle');
-                  let isPlaying = true;
-
-                  toggleBtn.addEventListener('click', () => {
-                  if (isPlaying) {
-                    heroVideo.pause();
-                      toggleBtn.textContent = 'Play';
-                      toggleBtn.classList.add('paused');
-                      isPlaying = false;
-                  } else {
-                    heroVideo.play().then(() => {
-                      toggleBtn.textContent = 'Pause';
-                      toggleBtn.classList.remove('paused');
-                      isPlaying = true;
-                    }).catch(error => {
-                      console.error('Error playing the video:', error);
-                    });
-                  }
-                });
-                </script>
-
                           </div>
                   </div>
         <div class="copy animate-children">
