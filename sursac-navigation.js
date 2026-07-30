@@ -6,6 +6,20 @@
     "/about.html": "/sobre-nosotros",
     "/contact.html": "/contacto"
   };
+  const cleanPublicPaths = new Set([
+    "/",
+    "/productos",
+    "/sostenibilidad",
+    "/sobre-nosotros",
+    "/contacto"
+  ]);
+
+  function getCleanPublicPath(pathname) {
+    return (
+      cleanPathByLegacyPath[pathname] ||
+      (cleanPublicPaths.has(pathname) ? pathname : null)
+    );
+  }
 
   function normalizeLegacyLinks(root) {
     root.querySelectorAll("a[href]").forEach((link) => {
@@ -13,11 +27,24 @@
       if (!rawHref || rawHref.startsWith("#")) return;
 
       const url = new URL(rawHref, window.location.href);
-      const cleanPath = cleanPathByLegacyPath[url.pathname];
+      const cleanPath = getCleanPublicPath(url.pathname);
       if (!cleanPath || url.origin !== window.location.origin) return;
 
-      link.setAttribute("href", `${cleanPath}${url.search}${url.hash}`);
+      link.setAttribute("href", `${cleanPath}${url.search}`);
     });
+  }
+
+  function normalizeCurrentUrl() {
+    const cleanPath = getCleanPublicPath(window.location.pathname);
+    if (!cleanPath || (!window.location.hash && cleanPath === window.location.pathname)) {
+      return;
+    }
+
+    window.history.replaceState(
+      window.history.state,
+      "",
+      `${cleanPath}${window.location.search}`
+    );
   }
 
   const productItems = [
@@ -692,6 +719,7 @@
 
     requestAnimationFrame(() => {
       scheduled = false;
+      normalizeCurrentUrl();
       normalizeLegacyLinks(document);
       normalizeProductsPageHeader(document);
       ensureLocalMobileHeaderToggle(document);
