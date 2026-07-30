@@ -378,7 +378,7 @@
       toggle = document.createElement("a");
       toggle.href = "#";
       toggle.className = "menu-toggle";
-      toggle.innerHTML = "<span>Menu</span><i></i>";
+      toggle.innerHTML = "<span>Menú</span><i></i>";
       headerWrap.appendChild(toggle);
     }
   }
@@ -413,10 +413,10 @@
     const isNavOpen = !!(root.body && root.body.classList.contains("nav-open"));
 
     if (label) {
-      label.textContent = isNavOpen ? "" : "Menu";
+      label.textContent = isNavOpen ? "" : "Menú";
     }
 
-    toggle.setAttribute("aria-label", isNavOpen ? "Cerrar menu" : "Abrir menu");
+    toggle.setAttribute("aria-label", isNavOpen ? "Cerrar menú" : "Abrir menú");
     toggle.setAttribute("aria-expanded", isNavOpen ? "true" : "false");
   }
 

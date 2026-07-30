@@ -696,6 +696,23 @@ body.path-contact-local .contact-local-actions {
   align-items: center;
 }
 
+body.path-contact-local .contact-local-whatsapp {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.7rem;
+  text-transform: none !important;
+}
+
+body.path-contact-local .contact-local-whatsapp::before {
+  content: "";
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  flex: 0 0 auto;
+  background: currentColor;
+  clip-path: polygon(8% 10%, 92% 10%, 92% 72%, 58% 72%, 40% 94%, 40% 72%, 8% 72%);
+}
+
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sursac-button),
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sursac-button):hover,
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sursac-button):focus,
@@ -2163,9 +2180,12 @@ body.path-latam .site-header .main-navigation a.sursac-button:focus-visible {
   body.path-latam.nav-open .site-header .menu-toggle {
     display: inline-flex !important;
     flex-direction: column !important;
-    align-items: flex-end !important;
+    align-items: center !important;
     justify-content: center !important;
-    gap: 0.42rem !important;
+    gap: 0.62rem !important;
+    min-width: 64px !important;
+    height: 72px !important;
+    padding: 7px 0 !important;
     text-decoration: none !important;
     --toggle-color: var(--ui-brand-blue) !important;
     color: var(--ui-brand-blue) !important;
@@ -2176,12 +2196,33 @@ body.path-latam .site-header .main-navigation a.sursac-button:focus-visible {
     margin: 0 !important;
     padding: 0 !important;
     line-height: 1 !important;
+    font-size: 0.95rem !important;
     text-decoration: none !important;
   }
 
   body.path-latam .site-header .menu-toggle i {
     display: block !important;
     margin: 0 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 38px !important;
+    height: 2px !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.path-latam .site-header .menu-toggle i::before,
+  body.path-latam .site-header .menu-toggle i::after {
+    width: 38px !important;
+    margin-left: -19px !important;
+  }
+
+  body.path-latam .site-header .menu-toggle i::before {
+    top: -8px !important;
+  }
+
+  body.path-latam .site-header .menu-toggle i::after {
+    top: 8px !important;
   }
 
   body.path-latam .site-header .menu-toggle i,
@@ -2194,12 +2235,21 @@ body.path-latam .site-header .main-navigation a.sursac-button:focus-visible {
     background: transparent !important;
   }
 
+  body.path-latam.nav-open .site-header .menu-toggle i::before,
+  body.path-latam.nav-open .site-header .menu-toggle i::after {
+    top: 0 !important;
+  }
+
   body.path-latam.nav-open .site-header .menu-toggle span {
     display: none !important;
   }
 
   body.path-latam .main-navigation li.sursac-product-menu-item {
     position: relative !important;
+  }
+
+  body.path-latam .main-navigation li.sursac-product-menu-item > a {
+    padding-right: 3.25rem !important;
   }
 
   body.path-latam .main-navigation .sursac-product-dropdown a,
@@ -2277,9 +2327,9 @@ body.path-latam .site-header .main-navigation a.sursac-button:focus-visible {
     color: transparent !important;
     cursor: pointer !important;
     position: absolute !important;
-    top: 50% !important;
+    top: 0 !important;
     right: 0 !important;
-    transform: translateY(-50%) !important;
+    transform: none !important;
     text-indent: -9999px !important;
     overflow: hidden !important;
     box-shadow: none !important;
@@ -3339,6 +3389,33 @@ body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-ph
   background: rgba(0, 0, 0, 0) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 12'%3E%3Cpath d='M12.5 5.4 7.8.7C7.5.4 7 .4 6.7.7s-.3.8 0 1.1l3.5 3.5H1c-.4 0-.8.2-.8.7s.3.8.8.8h9.1l-3.4 3.4c-.3.3-.3.8 0 1.1s.8.3 1.1 0l4.8-4.8c.3-.3.3-.8 0-1.1Z' fill='%238E1B22'/%3E%3C/svg%3E") no-repeat center !important;
   background-size: contain !important;
   filter: none !important;
+}
+
+@media (max-width: 47.9375rem) {
+  body.path-latam #launchpad-layer-circular-photo-2422 .field-launchpad-items {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto !important;
+  }
+
+  body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo {
+    width: 100% !important;
+    max-width: 220px !important;
+    margin: 0 auto 1rem !important;
+    padding: 58px 0 0 !important;
+  }
+
+  body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo img {
+    width: 108px !important;
+    height: 108px !important;
+  }
+
+  body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a {
+    font-size: 1.125rem !important;
+  }
 }
 
 body.path-latam #call-to-action-medium-2424 {
