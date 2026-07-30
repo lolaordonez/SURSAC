@@ -644,7 +644,7 @@ body.path-contact-local .contact-local-hero {
   padding: 116px 0 32px;
   background-image:
     linear-gradient(180deg, rgba(17, 17, 17, 0.28) 0%, rgba(17, 17, 17, 0.5) 100%),
-    url("assets/banners/contactanos-banner.jpg");
+    url("assets/banners/contactanos.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -699,18 +699,7 @@ body.path-contact-local .contact-local-actions {
 body.path-contact-local .contact-local-whatsapp {
   display: inline-flex !important;
   align-items: center;
-  gap: 0.7rem;
   text-transform: none !important;
-}
-
-body.path-contact-local .contact-local-whatsapp::before {
-  content: "";
-  display: block;
-  width: 1.2rem;
-  height: 1.2rem;
-  flex: 0 0 auto;
-  background: currentColor;
-  clip-path: polygon(8% 10%, 92% 10%, 92% 72%, 58% 72%, 40% 94%, 40% 72%, 8% 72%);
 }
 
 body.path-contact-local.path-latam .site-header .main-navigation ul.menu-level-0 > li > a:not(.sursac-button),
