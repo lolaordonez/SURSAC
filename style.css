@@ -2843,7 +2843,7 @@ body.path-latam #call-to-action-large-2414.call-to-action-large {
   background-color: var(--ui-brand-blue) !important;
   background-image:
     linear-gradient(rgba(142, 27, 34, 0.8), rgba(142, 27, 34, 0.8)),
-    url("assets/planta3.png?v=20260718-1") !important;
+    url("assets/banners/contactanos-banner.jpg") !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -3422,7 +3422,7 @@ body.path-latam #call-to-action-medium-2424 {
   background-color: #74151b !important;
   background-image:
     linear-gradient(90deg, rgba(116, 21, 27, 0.9) 0%, rgba(116, 21, 27, 0.8) 46%, rgba(95, 18, 24, 0.78) 100%),
-    url("assets/planta3.png") !important;
+    url("assets/banners/banner_embalaje.png") !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
