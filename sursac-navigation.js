@@ -1,5 +1,6 @@
 (function () {
   const cleanPathByLegacyPath = {
+    "/index.html": "/",
     "/products.html": "/productos",
     "/sustainability.html": "/sostenibilidad",
     "/about.html": "/sobre-nosotros",
