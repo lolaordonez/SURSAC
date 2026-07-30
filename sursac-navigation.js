@@ -1,13 +1,33 @@
 (function () {
+  const cleanPathByLegacyPath = {
+    "/products.html": "/productos",
+    "/sustainability.html": "/sostenibilidad",
+    "/about.html": "/sobre-nosotros",
+    "/contact.html": "/contacto"
+  };
+
+  function normalizeLegacyLinks(root) {
+    root.querySelectorAll("a[href]").forEach((link) => {
+      const rawHref = link.getAttribute("href");
+      if (!rawHref || rawHref.startsWith("#")) return;
+
+      const url = new URL(rawHref, window.location.href);
+      const cleanPath = cleanPathByLegacyPath[url.pathname];
+      if (!cleanPath || url.origin !== window.location.origin) return;
+
+      link.setAttribute("href", `${cleanPath}${url.search}${url.hash}`);
+    });
+  }
+
   const productItems = [
-    { label: "Sacos Leno Original", href: "products.html#launchpad-item-large-photo-1424" },
-    { label: "Sacos Leno Plus", href: "products.html#launchpad-item-large-photo-1425" },
-    { label: "Sacos Tejidos", href: "products.html#launchpad-item-large-photo-sacos-tejidos" },
-    { label: "Sacos Impresos", href: "products.html#launchpad-item-large-photo-1445" },
-    { label: "Sacos Impresos con Asa", href: "products.html#launchpad-item-large-photo-sacos-impresos-con-asa" },
-    { label: "Saco Transparente", href: "products.html#launchpad-item-large-photo-saco-transparente" },
-    { label: "Telas De Polipropileno", href: "products.html#launchpad-item-large-photo-1443" },
-    { label: "Piolas", href: "products.html#launchpad-item-large-photo-1436" }
+    { label: "Sacos Leno Original", href: "/productos#launchpad-item-large-photo-1424" },
+    { label: "Sacos Leno Plus", href: "/productos#launchpad-item-large-photo-1425" },
+    { label: "Sacos Tejidos", href: "/productos#launchpad-item-large-photo-sacos-tejidos" },
+    { label: "Sacos Impresos", href: "/productos#launchpad-item-large-photo-1445" },
+    { label: "Sacos Impresos con Asa", href: "/productos#launchpad-item-large-photo-sacos-impresos-con-asa" },
+    { label: "Saco Transparente", href: "/productos#launchpad-item-large-photo-saco-transparente" },
+    { label: "Telas De Polipropileno", href: "/productos#launchpad-item-large-photo-1443" },
+    { label: "Piolas", href: "/productos#launchpad-item-large-photo-1436" }
   ];
 
   const productSignature = productItems.map((item) => item.label).join("|");
@@ -32,7 +52,7 @@
 
   function ensureProductMenus(root) {
     root
-      .querySelectorAll('.main-navigation ul.menu-level-0 > li > a[href="products.html"]')
+      .querySelectorAll('.main-navigation ul.menu-level-0 > li > a[href="products.html"], .main-navigation ul.menu-level-0 > li > a[href="/productos"]')
       .forEach((link) => {
         const menuItem = link.closest("li.menu-item");
         if (!menuItem) return;
@@ -69,7 +89,7 @@
 
   function normalizeProductTrigger(link) {
     link.textContent = "Productos";
-    link.setAttribute("href", "products.html");
+    link.setAttribute("href", "/productos");
   }
 
   function bindDirectLinkNavigation(link, boundKey) {
@@ -224,6 +244,7 @@
     const text = (link.textContent || "").trim().toLowerCase();
 
     return (
+      href === "/sostenibilidad" ||
       href === "sustainability.html" ||
       href.startsWith("sustainability.html?") ||
       href.includes("/sustainability") ||
@@ -235,7 +256,7 @@
 
   function normalizeSustainabilityTrigger(link) {
     link.textContent = "Sostenibilidad";
-    link.setAttribute("href", "sustainability.html");
+    link.setAttribute("href", "/sostenibilidad");
   }
 
   function bindSustainabilityTriggerNavigation(link) {
@@ -245,7 +266,11 @@
   function isAboutTrigger(link) {
     if (!link) return false;
     const href = (link.getAttribute("href") || "").trim();
-    return href === "about.html" || href.startsWith("about.html?");
+    return (
+      href === "/sobre-nosotros" ||
+      href === "about.html" ||
+      href.startsWith("about.html?")
+    );
   }
 
   function disableDirectLinkMegaMenus(root) {
@@ -349,10 +374,10 @@
       '      <nav role="navigation" aria-labelledby="products-main-navigation-menu" id="products-main-navigation">',
       '        <h2 class="visually-hidden" id="products-main-navigation-menu">Main Navigation</h2>',
       '        <ul data-region="site_header" class="menu menu-list menu-level-0">',
-      '          <li class="menu-item"><a href="products.html" aria-current="page">Productos</a></li>',
-      '          <li class="menu-item"><a href="sustainability.html">Sostenibilidad</a></li>',
-      '          <li class="menu-item"><a href="about.html">Acerca de nosotros</a></li>',
-      '          <li class="menu-item"><a href="contact.html" class="sursac-button" style="background:#8E1B22 !important; background-color:#8E1B22 !important; background-image:none !important; color:#F6F1E9 !important;">Contáctanos</a></li>',
+      '          <li class="menu-item"><a href="/productos" aria-current="page">Productos</a></li>',
+      '          <li class="menu-item"><a href="/sostenibilidad">Sostenibilidad</a></li>',
+      '          <li class="menu-item"><a href="/sobre-nosotros">Acerca de nosotros</a></li>',
+      '          <li class="menu-item"><a href="/contacto" class="sursac-button" style="background:#8E1B22 !important; background-color:#8E1B22 !important; background-image:none !important; color:#F6F1E9 !important;">Contáctanos</a></li>',
       "        </ul>",
       "      </nav>",
       "    </div>",
@@ -666,6 +691,7 @@
 
     requestAnimationFrame(() => {
       scheduled = false;
+      normalizeLegacyLinks(document);
       normalizeProductsPageHeader(document);
       ensureLocalMobileHeaderToggle(document);
       ensureProductMenus(document);

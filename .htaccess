@@ -1,0 +1,26 @@
+RewriteEngine On
+
+# Redirect legacy English filenames to the public Spanish URLs.
+RewriteCond %{THE_REQUEST} \s/+contact\.html(?:[?\s]) [NC]
+RewriteRule ^contact\.html$ /contacto [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+sustainability\.html(?:[?\s]) [NC]
+RewriteRule ^sustainability\.html$ /sostenibilidad [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+about\.html(?:[?\s]) [NC]
+RewriteRule ^about\.html$ /sobre-nosotros [R=301,L,NE]
+
+RewriteCond %{THE_REQUEST} \s/+products\.html(?:[?\s]) [NC]
+RewriteRule ^products\.html$ /productos [R=301,L,NE]
+
+# Keep one canonical version without a trailing slash.
+RewriteRule ^contacto/$ /contacto [R=301,L]
+RewriteRule ^sostenibilidad/$ /sostenibilidad [R=301,L]
+RewriteRule ^sobre-nosotros/$ /sobre-nosotros [R=301,L]
+RewriteRule ^productos/$ /productos [R=301,L]
+
+# Serve the existing static files behind the clean public URLs.
+RewriteRule ^contacto$ contact.html [L]
+RewriteRule ^sostenibilidad$ sustainability.html [L]
+RewriteRule ^sobre-nosotros$ about.html [L]
+RewriteRule ^productos$ products.html [L]
