@@ -51,11 +51,11 @@
     { label: "Sacos Leno Original", href: "/productos#launchpad-item-large-photo-1424" },
     { label: "Sacos Leno Plus", href: "/productos#launchpad-item-large-photo-1425" },
     { label: "Leno personalizado", href: "/productos#launchpad-item-large-photo-leno-personalizado" },
+    { label: "Saco Leno arroba", href: "/productos#launchpad-item-large-photo-saco-leno-arroba" },
     { label: "Sacos Tejidos", href: "/productos#launchpad-item-large-photo-sacos-tejidos" },
     { label: "Sacos Impresos", href: "/productos#launchpad-item-large-photo-1445" },
     { label: "Sacos Impresos con Asa", href: "/productos#launchpad-item-large-photo-sacos-impresos-con-asa" },
     { label: "Saco Transparente", href: "/productos#launchpad-item-large-photo-saco-transparente" },
-    { label: "Saco Leno arroba", href: "/productos#launchpad-item-large-photo-saco-leno-arroba" },
     { label: "Telas De Polipropileno", href: "/productos#launchpad-item-large-photo-1443" },
     { label: "Piolas", href: "/productos#launchpad-item-large-photo-1436" }
   ];
