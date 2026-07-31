@@ -3384,26 +3384,32 @@ body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-ph
   body.path-latam #launchpad-layer-circular-photo-2422 .field-launchpad-items {
     display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     width: 100% !important;
-    max-width: 240px !important;
+    max-width: 200px !important;
     margin: 0 auto !important;
   }
 
   body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo {
     width: 100% !important;
-    max-width: 220px !important;
-    margin: 0 auto 1rem !important;
-    padding: 58px 0 0 !important;
+    max-width: 180px !important;
+    margin: 0 auto 0.75rem !important;
+    padding: 78px 0 0 !important;
   }
 
   body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo img {
-    width: 108px !important;
-    height: 108px !important;
+    width: 136px !important;
+    height: 136px !important;
+    object-fit: cover !important;
   }
 
   body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a {
-    font-size: 1.125rem !important;
+    padding: 0.75em 0.75em 0 !important;
+    font-size: 1rem !important;
+  }
+
+  body.path-latam #launchpad-layer-circular-photo-2422 .launchpad-item-circular-photo .field-link a::after {
+    height: 28px !important;
   }
 }
 
