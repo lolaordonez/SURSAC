@@ -3637,11 +3637,13 @@ body.path-na--products #launchpad-layer-large-photo-1426 .field-launchpad-items 
 
 body.path-na--products #launchpad-item-large-photo-1424 > a,
 body.path-na--products #launchpad-item-large-photo-1425 > a,
+body.path-na--products #launchpad-item-large-photo-leno-personalizado > a,
 body.path-na--products #launchpad-item-large-photo-sacos-tejidos > a,
 body.path-na--products #launchpad-item-large-photo-1445 > a,
 body.path-na--products #launchpad-item-large-photo-sacos-impresos-con-asa > a,
 body.path-na--products #launchpad-item-large-photo-1443 > a,
 body.path-na--products #launchpad-item-large-photo-saco-transparente > a,
+body.path-na--products #launchpad-item-large-photo-saco-leno-arroba > a,
 body.path-na--products #launchpad-item-large-photo-1436 > a {
   display: flex;
   align-items: center;
