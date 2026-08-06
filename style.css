@@ -297,6 +297,15 @@ body.path-latam .site-footer .footer-lower #button-latamcontact {
   align-self: center !important;
 }
 
+body.path-latam .site-footer .footer-copyright {
+  margin-bottom: 0 !important;
+}
+
+body.path-latam .site-footer .footer-credit {
+  margin: 0.35rem 0 0 !important;
+  text-align: center !important;
+}
+
 @media (max-width: 63.9375rem) {
   body.path-latam .site-footer .footer-lower .inner {
     gap: 1.5rem !important;
@@ -550,7 +559,8 @@ body.path-latam .footer-navigation .social-web::before {
     line-height: 1.1 !important;
   }
 
-  body.path-latam .site-footer .footer-copyright {
+  body.path-latam .site-footer .footer-copyright,
+  body.path-latam .site-footer .footer-credit {
     text-align: left !important;
   }
 
